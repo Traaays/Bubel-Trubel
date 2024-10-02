@@ -1,0 +1,71 @@
+[gd_scene load_steps=10 format=3 uid="uid://bnig7a8u888r7"]
+
+[ext_resource type="Script" path="res://scripts/devil.gd" id="1_dwjft"]
+[ext_resource type="Texture2D" uid="uid://b4bgn601w6p04" path="res://assets/sprites/spritesheetppshadow.png" id="2_6kbmx"]
+[ext_resource type="SpriteFrames" uid="uid://cogs2rhbwpq47" path="res://assets/pifpafs/pifpafbasic.tres" id="3_cw6vb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tmk0n"]
+radius = 8.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kut1m"]
+size = Vector2(16, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_27xx8"]
+atlas = ExtResource("2_6kbmx")
+region = Rect2(87, 0, 29, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jo5il"]
+atlas = ExtResource("2_6kbmx")
+region = Rect2(58, 0, 29, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1tbq3"]
+atlas = ExtResource("2_6kbmx")
+region = Rect2(29, 0, 29, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rnci7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_27xx8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jo5il")
+}],
+"loop": true,
+"name": &"run",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1tbq3")
+}],
+"loop": true,
+"name": &"stand",
+"speed": 6.0
+}]
+
+[node name="Devil" type="CharacterBody2D"]
+script = ExtResource("1_dwjft")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_tmk0n")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(0, 15.5)
+shape = SubResource("RectangleShape2D_kut1m")
+
+[node name="shadow" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, 1)
+sprite_frames = SubResource("SpriteFrames_rnci7")
+animation = &"run"
+autoplay = "stand"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("3_cw6vb")
+animation = &"run"
+autoplay = "stand"
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

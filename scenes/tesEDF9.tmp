@@ -1,0 +1,82 @@
+[gd_scene load_steps=7 format=3 uid="uid://b4xf4bgafr24q"]
+
+[ext_resource type="PackedScene" uid="uid://bnig7a8u888r7" path="res://scenes/devil.tscn" id="1_13hi3"]
+[ext_resource type="Script" path="res://scenes/test_level.gd" id="1_c0txt"]
+[ext_resource type="PackedScene" uid="uid://b0bl4wcxcnryi" path="res://scenes/pause_menu.tscn" id="3_aqr3w"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_d7p48"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8g7vp"]
+size = Vector2(256, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ouk5"]
+size = Vector2(1, 224)
+
+[node name="testLevel" type="Node2D"]
+script = ExtResource("1_c0txt")
+
+[node name="Devil" parent="." instance=ExtResource("1_13hi3")]
+position = Vector2(20, 192)
+
+[node name="Ground_Ceiling" type="StaticBody2D" parent="."]
+
+[node name="Ground" type="CollisionShape2D" parent="Ground_Ceiling"]
+position = Vector2(0, 208)
+shape = SubResource("WorldBoundaryShape2D_d7p48")
+
+[node name="Ceiling" type="CollisionShape2D" parent="Ground_Ceiling"]
+position = Vector2(128, 0)
+shape = SubResource("RectangleShape2D_8g7vp")
+
+[node name="Walls" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
+position = Vector2(0, 112)
+shape = SubResource("RectangleShape2D_7ouk5")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls"]
+position = Vector2(256, 112)
+shape = SubResource("RectangleShape2D_7ouk5")
+
+[node name="pause_menu" parent="." instance=ExtResource("3_aqr3w")]
+offset_left = 128.0
+offset_top = 112.0
+offset_right = 128.0
+offset_bottom = 112.0
+
+[node name="UI" type="Node2D" parent="."]
+z_index = 10
+position = Vector2(128, 224)
+
+[node name="livesLabel" type="Label" parent="UI"]
+custom_minimum_size = Vector2(50, 16)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -125.0
+offset_top = -16.0
+offset_right = -75.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 11
+text = "lives = 5"
+
+[node name="scoreLabel" type="Label" parent="UI"]
+visible = false
+custom_minimum_size = Vector2(100, 16)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -25.0
+offset_top = -16.0
+offset_right = 75.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 11
+text = "score = 0"
+
+[connection signal="body_entered" from="Walls" to="." method="_on_walls_body_entered"]

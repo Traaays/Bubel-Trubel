@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dy4vpfkmtq0ua"]
+
+[ext_resource type="Script" path="res://scripts/ball.gd" id="1_rvmry"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xp628"]
+resource_local_to_scene = true
+radius = 32.0
+
+[node name="Ball" type="CharacterBody2D"]
+collision_mask = 2
+script = ExtResource("1_rvmry")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_xp628")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
