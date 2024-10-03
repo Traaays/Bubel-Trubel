@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cuujlwcwefd32"]
+
+[ext_resource type="Texture2D" uid="uid://d0elvjr8maac6" path="res://assets/hooks/evil.tres" id="1_o8ajy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_waqtn"]
+size = Vector2(6, 256)
+
+[sub_resource type="BoxMesh" id="BoxMesh_kxpaf"]
+size = Vector3(4, 256, 1)
+
+[node name="ShootArea2D" type="Area2D"]
+position = Vector2(0, 208)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 144)
+shape = SubResource("RectangleShape2D_waqtn")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+position = Vector2(0, 144)
+mesh = SubResource("BoxMesh_kxpaf")
+texture = ExtResource("1_o8ajy")

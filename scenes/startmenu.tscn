@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://d1tvirhgpnyxd"]
+[gd_scene load_steps=18 format=3 uid="uid://d1tvirhgpnyxd"]
 
 [ext_resource type="Shader" path="res://shaders/main_menu.gdshader" id="1_e2h3x"]
 [ext_resource type="Script" path="res://scripts/startmenu.gd" id="1_i8ogi"]
@@ -10,8 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://dwlyf0llwdrof" path="res://assets/menu/buttons2.png" id="5_8a74o"]
 [ext_resource type="Texture2D" uid="uid://b6mdvd1x5nbej" path="res://assets/menu/selectstart.png" id="5_jxyxw"]
 [ext_resource type="Texture2D" uid="uid://cgwb6hmsk0kug" path="res://assets/menu/logo.png" id="9_2nm3k"]
-[ext_resource type="SpriteFrames" uid="uid://cogs2rhbwpq47" path="res://assets/pifpafs/pifpafbasic.tres" id="10_r5f34"]
 [ext_resource type="Texture2D" uid="uid://bwy72rrbpfj0t" path="res://assets/menu/mask.png" id="11_2ee1v"]
+[ext_resource type="SpriteFrames" uid="uid://ctayxkvsuwtmr" path="res://assets/devil.tres" id="12_y77nq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fixq2"]
 shader = ExtResource("1_e2h3x")
@@ -50,6 +50,9 @@ animations = [{
 }]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_su3r1"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_3onw7"]
+size = Vector3(100, 0.5, 100)
 
 [node name="startmenu" type="Node2D"]
 script = ExtResource("1_i8ogi")
@@ -116,7 +119,46 @@ fov = 20.0
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Mask/SubViewportContainer/SubViewport/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.02, -1)
 texture_filter = 0
-sprite_frames = ExtResource("10_r5f34")
-animation = &"run"
-autoplay = "stand"
-frame_progress = 0.462703
+sprite_frames = ExtResource("12_y77nq")
+animation = &"1stand"
+autoplay = "1stand"
+
+[node name="AnimatedSprite3D2" type="AnimatedSprite3D" parent="Mask/SubViewportContainer/SubViewport/Camera3D/AnimatedSprite3D"]
+transform = Transform3D(1, 0, 0, 0, -6.55671e-08, 1, 0, -1.5, -4.37114e-08, 0, -0.16, -0.24)
+modulate = Color(0, 0, 0, 1)
+texture_filter = 0
+sprite_frames = ExtResource("12_y77nq")
+animation = &"1stand"
+autoplay = "1stand"
+
+[node name="Sprite3D" type="Sprite3D" parent="Mask/SubViewportContainer/SubViewport/Camera3D/AnimatedSprite3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.02, -5.7)
+modulate = Color(0.547458, 0.678752, 1.92523e-07, 1)
+pixel_size = 0.25
+texture = ExtResource("1_rydor")
+
+[node name="Sprite3D2" type="Sprite3D" parent="Mask/SubViewportContainer/SubViewport/Camera3D/AnimatedSprite3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.02, 5.7)
+modulate = Color(0.547458, 0.678752, 1.92523e-07, 1)
+pixel_size = 0.25
+texture = ExtResource("1_rydor")
+
+[node name="Sprite3D3" type="Sprite3D" parent="Mask/SubViewportContainer/SubViewport/Camera3D/AnimatedSprite3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.7, -0.02, 5.7)
+modulate = Color(0.547458, 0.678752, 1.92523e-07, 1)
+pixel_size = 0.25
+texture = ExtResource("1_rydor")
+
+[node name="Sprite3D4" type="Sprite3D" parent="Mask/SubViewportContainer/SubViewport/Camera3D/AnimatedSprite3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.7, -0.02, 5.7)
+modulate = Color(0.547458, 0.678752, 1.92523e-07, 1)
+pixel_size = 0.25
+texture = ExtResource("1_rydor")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mask/SubViewportContainer/SubViewport/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+mesh = SubResource("BoxMesh_3onw7")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Mask/SubViewportContainer/SubViewport/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0.3, 0)
+spot_range = 50.0

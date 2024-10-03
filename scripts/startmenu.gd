@@ -5,6 +5,7 @@ extends Node2D
 @onready var mask = $Mask
 @onready var logo = $logo
 @onready var pif = $Mask/SubViewportContainer/SubViewport/Camera3D/AnimatedSprite3D
+@onready var pifshadow = $Mask/SubViewportContainer/SubViewport/Camera3D/AnimatedSprite3D/AnimatedSprite3D2
 
 @onready var skin = $skinLabel
 @onready var level = $levelLabel
@@ -14,12 +15,15 @@ func _ready():
 	skin.visible = false
 	level.visible = false
 	mask.visible = false
-	MySingleton._switch_skin(pif)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	skin.text = str(MySingleton.skin)
 	level.text = str(MySingleton.currentLevel)
+	pif.rotation.y -= 0.02
+	pif.animation = str(MySingleton.skin) + "run"
+	pifshadow.animation = str(MySingleton.skin) + "run"
+
 	if Input.is_action_just_pressed("Select"):
 		if pick.frame <= 1:
 			pick.frame += 1
@@ -33,23 +37,22 @@ func _process(delta):
 				else:
 					if MySingleton.skin < MySingleton.maxSkin:
 						MySingleton.skin += 1
-						MySingleton._switch_skin(pif)
 					else: 
 						MySingleton.skin = 1
-						MySingleton._switch_skin(pif)
 			1:
 				if buttons.frame == 0:
 					buttons.frame = 1
 					pick.frame = 0
 					mask.visible = true
-					level.visible = true
+					#level.visible = true
 					skin.visible = true
 					logo.visible = false
 				else:
-					if MySingleton.currentLevel < MySingleton.maxLevel:
-						MySingleton.currentLevel += 1
-					else: 
-						MySingleton.currentLevel = 1
+					#if MySingleton.currentLevel < MySingleton.maxLevel:
+						#MySingleton.currentLevel += 1
+					#else: 
+						#MySingleton.currentLevel = 1
+					pass
 			2:
 				if buttons.frame == 0:
 					get_tree().quit()
@@ -60,4 +63,3 @@ func _process(delta):
 					level.visible = false
 					skin.visible = false
 					logo.visible = true
-	pif.rotation.y -= 0.02

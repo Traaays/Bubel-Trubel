@@ -2,11 +2,14 @@ extends CharacterBody2D
 
 @onready var sprite = $AnimatedSprite2D
 @onready var shadow = $shadow
+@onready var devil = $"."
 
 var SPEED = 60.0
 
 func _ready():
 	shadow.modulate.a8 = 50
+	sprite.animation = str(MySingleton.skin) + "stand"
+	shadow.animation = str(MySingleton.skin) + "stand"
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -20,8 +23,8 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
 	if velocity.x != 0:
-		sprite.animation = "run"
-		shadow.animation = "run"
+		sprite.animation = str(MySingleton.skin) + "run"
+		shadow.animation = str(MySingleton.skin) + "run"
 		if velocity.x < 0:
 			sprite.flip_h = true
 			shadow.flip_h = true
@@ -29,8 +32,8 @@ func _physics_process(delta):
 			sprite.flip_h = false
 			shadow.flip_h = false
 	else:
-		sprite.animation = "stand"
-		shadow.animation = "stand"
+		sprite.animation = str(MySingleton.skin) + "stand"
+		shadow.animation = str(MySingleton.skin) + "stand"
 
 	move_and_slide()
 	$"../UI/livesLabel".text = ("lives = " + str(MySingleton.lives))
@@ -41,5 +44,5 @@ func _on_area_2d_body_entered(body):
 			MySingleton.lives -= 1
 			get_tree().call_deferred("reload_current_scene")
 		else:
-			MySingleton.lives = 5
+			MySingleton.lives = MySingleton.maxLives
 			get_tree().call_deferred("change_scene_to_file", "res://scenes/startmenu.tscn")

@@ -1,20 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://b4xf4bgafr24q"]
+[gd_scene load_steps=11 format=3 uid="uid://b4xf4bgafr24q"]
 
 [ext_resource type="PackedScene" uid="uid://bnig7a8u888r7" path="res://scenes/devil.tscn" id="1_13hi3"]
 [ext_resource type="Script" path="res://scripts/test_level.gd" id="1_qghfq"]
+[ext_resource type="PackedScene" uid="uid://cuujlwcwefd32" path="res://scenes/shoot_area_2d.tscn" id="2_p13dv"]
 [ext_resource type="PackedScene" uid="uid://b0bl4wcxcnryi" path="res://scenes/pause_menu.tscn" id="3_aqr3w"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_waqtn"]
-size = Vector2(6, 256)
-
-[sub_resource type="BoxMesh" id="BoxMesh_kxpaf"]
-size = Vector3(4, 256, 1)
-
-[sub_resource type="Gradient" id="Gradient_3l8v4"]
-colors = PackedColorArray(0, 0, 0, 1, 0.347817, 0.347817, 0.347817, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_4qt80"]
-gradient = SubResource("Gradient_3l8v4")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_d7p48"]
 
@@ -36,17 +25,7 @@ size = Vector2(1, 224)
 [node name="testLevel" type="Node2D"]
 script = ExtResource("1_qghfq")
 
-[node name="ShootArea2D" type="Area2D" parent="."]
-position = Vector2(0, 208)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ShootArea2D"]
-position = Vector2(0, 144)
-shape = SubResource("RectangleShape2D_waqtn")
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="ShootArea2D"]
-position = Vector2(0, 144)
-mesh = SubResource("BoxMesh_kxpaf")
-texture = SubResource("GradientTexture1D_4qt80")
+[node name="ShootArea2D" parent="." instance=ExtResource("2_p13dv")]
 
 [node name="Devil" parent="." instance=ExtResource("1_13hi3")]
 position = Vector2(20, 192)
@@ -115,7 +94,7 @@ offset_right = -75.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 11
-text = "lives = 5"
+text = "lives = "
 
 [node name="scoreLabel" type="Label" parent="UI"]
 visible = false
