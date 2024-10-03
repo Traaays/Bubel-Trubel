@@ -1,15 +1,21 @@
 extends CharacterBody2D
 
+class_name cnDevil
+
 @onready var sprite = $AnimatedSprite2D
 @onready var shadow = $shadow
 @onready var devil = $"."
+@onready var shoot = $ShootArea2D
 
 var SPEED = 60.0
+var casting = false
+var lastXPosBeforeCast = 0
 
 func _ready():
 	shadow.modulate.a8 = 50
 	sprite.animation = str(MySingleton.skin) + "stand"
 	shadow.animation = str(MySingleton.skin) + "stand"
+	_check_gh()
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -36,13 +42,44 @@ func _physics_process(delta):
 		shadow.animation = str(MySingleton.skin) + "stand"
 
 	move_and_slide()
-	$"../UI/livesLabel".text = ("lives = " + str(MySingleton.lives))
+	
+	if Input.is_action_just_pressed("Shoot") and casting == false:
+		casting = true
+		lastXPosBeforeCast = devil.position.x
+	
+	if casting == true:
+		shoot.position.y -= delta*150
+		shoot.position.x = lastXPosBeforeCast - devil.position.x
 
 func _on_area_2d_body_entered(body):
-	if body:
+	if body is cnBall:
 		if MySingleton.lives > 1:
 			MySingleton.lives -= 1
+			if MySingleton.highscore < MySingleton.allscore + MySingleton.score:
+				MySingleton.highscore = MySingleton.allscore + MySingleton.score
+			MySingleton.score = MySingleton.allscore
 			get_tree().call_deferred("reload_current_scene")
 		else:
 			MySingleton.lives = MySingleton.maxLives
+			if MySingleton.highscore < MySingleton.allscore + MySingleton.score:
+				MySingleton.highscore = MySingleton.allscore + MySingleton.score
+			MySingleton.allscore = 0
 			get_tree().call_deferred("change_scene_to_file", "res://scenes/startmenu.tscn")
+
+
+func _on_shoot_area_2d_body_entered(body):
+	if body.has_meta("cn"): #or platform
+		if body.get_meta("cn") == "ceiling":
+			casting = false
+			shoot.position.y = 0
+	elif body is cnBall:
+		casting = false
+		body._split(body)
+		shoot.position.y = 0
+		
+func _check_gh():
+	match MySingleton.skin:
+		1:
+			$ShootArea2D/MeshInstance2D.texture = load("res://assets/hooks/grey.tres")
+		2:
+			$ShootArea2D/MeshInstance2D.texture = load("res://assets/hooks/evil.tres")

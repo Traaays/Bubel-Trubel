@@ -1,7 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://bnig7a8u888r7"]
+[gd_scene load_steps=8 format=3 uid="uid://bnig7a8u888r7"]
 
 [ext_resource type="Script" path="res://scripts/devil.gd" id="1_dwjft"]
+[ext_resource type="Texture2D" uid="uid://d0elvjr8maac6" path="res://assets/hooks/evil.tres" id="3_1cymo"]
 [ext_resource type="SpriteFrames" uid="uid://ctayxkvsuwtmr" path="res://assets/devil.tres" id="3_s6uqa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l5pkh"]
+size = Vector2(6, 256)
+
+[sub_resource type="BoxMesh" id="BoxMesh_eesb5"]
+size = Vector3(4, 256, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tmk0n"]
 radius = 8.0
@@ -11,6 +18,17 @@ size = Vector2(16, 1)
 
 [node name="Devil" type="CharacterBody2D"]
 script = ExtResource("1_dwjft")
+
+[node name="ShootArea2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShootArea2D"]
+position = Vector2(0, 144)
+shape = SubResource("RectangleShape2D_l5pkh")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="ShootArea2D"]
+position = Vector2(0, 144)
+mesh = SubResource("BoxMesh_eesb5")
+texture = ExtResource("3_1cymo")
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -34,4 +52,5 @@ sprite_frames = ExtResource("3_s6uqa")
 animation = &"1run"
 autoplay = "1stand"
 
+[connection signal="body_entered" from="ShootArea2D" to="." method="_on_shoot_area_2d_body_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

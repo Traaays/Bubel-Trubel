@@ -9,6 +9,7 @@ extends Node2D
 
 @onready var skin = $skinLabel
 @onready var level = $levelLabel
+@onready var highscore = $highscoreLabel
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -20,6 +21,7 @@ func _ready():
 func _process(delta):
 	skin.text = str(MySingleton.skin)
 	level.text = str(MySingleton.currentLevel)
+	highscore.text = ("highscore: " + str(MySingleton.highscore))
 	pif.rotation.y -= 0.02
 	pif.animation = str(MySingleton.skin) + "run"
 	pifshadow.animation = str(MySingleton.skin) + "run"

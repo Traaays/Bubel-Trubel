@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
-@onready var test_level = $"."
+class_name cnBall
+
+@onready var ball = $"."
 @onready var cshape = $CollisionShape2D
 @onready var mesh = $MeshInstance2D
 
@@ -69,6 +71,7 @@ func _check_mesh(b):
 			mesh.mesh = load("res://assets/balls/Decagon.tres").duplicate()
 	
 func _split(level):
+	MySingleton.score += ball.cshape.shape.radius
 	var child1 = load("res://scenes/ball.tscn").instantiate()
 	child1.size = mesh.mesh.radius/2
 	child1.firstBall = false
