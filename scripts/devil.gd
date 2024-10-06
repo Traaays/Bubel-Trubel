@@ -83,3 +83,9 @@ func _check_gh():
 			$ShootArea2D/MeshInstance2D.texture = load("res://assets/hooks/grey.tres")
 		2:
 			$ShootArea2D/MeshInstance2D.texture = load("res://assets/hooks/evil.tres")
+		3:
+			pass
+		4:
+			$ShootArea2D/MeshInstance2D.texture = load("res://assets/sprites/spritesheetgameboy.png")
+		5:
+			$ShootArea2D/MeshInstance2D.texture = load("res://assets/sprites/spritesheetvirtualboy.png")

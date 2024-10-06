@@ -10,7 +10,8 @@ var currentLevel = 1
 var maxLevel = 2
 
 var skin = 1
-var maxSkin = 2
+var maxSkin = 5
+#make an invisible skin as the last one, also make one unlockable by winning, maybe like a crown
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

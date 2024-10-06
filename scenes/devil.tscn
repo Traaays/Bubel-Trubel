@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://bnig7a8u888r7"]
 
 [ext_resource type="Script" path="res://scripts/devil.gd" id="1_dwjft"]
-[ext_resource type="Texture2D" uid="uid://d0elvjr8maac6" path="res://assets/hooks/evil.tres" id="3_1cymo"]
+[ext_resource type="Texture2D" uid="uid://daf4c30sowfpi" path="res://assets/sprites/spritesheetgameboy.png" id="2_vix0u"]
 [ext_resource type="SpriteFrames" uid="uid://ctayxkvsuwtmr" path="res://assets/devil.tres" id="3_s6uqa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l5pkh"]
@@ -28,7 +28,7 @@ shape = SubResource("RectangleShape2D_l5pkh")
 [node name="MeshInstance2D" type="MeshInstance2D" parent="ShootArea2D"]
 position = Vector2(0, 144)
 mesh = SubResource("BoxMesh_eesb5")
-texture = ExtResource("3_1cymo")
+texture = ExtResource("2_vix0u")
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -49,7 +49,7 @@ autoplay = "1stand"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("3_s6uqa")
-animation = &"1run"
+animation = &"5stand"
 autoplay = "1stand"
 
 [connection signal="body_entered" from="ShootArea2D" to="." method="_on_shoot_area_2d_body_entered"]

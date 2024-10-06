@@ -17,26 +17,33 @@ var JUMP_VELOCITY = -225.0
 
 var firstBall = true
 
+var popsize
+var popcolour
 
 func _ready():
 	if firstBall == true:
 		$".".get_parent().amountAtBeginning += 1
-	_check_colour(colour)
-	_check_mesh(typamesh)
+	_check_colour()
+	_check_mesh()
 	cshape.shape.radius = size
 	mesh.mesh.radius = size
 	mesh.mesh.height = size * 2
 	match int(cshape.shape.radius):
 		32:
 			JUMP_VELOCITY = JUMP_VELOCITY/1.1
+			popsize = 0.4
 		16:
 			JUMP_VELOCITY = JUMP_VELOCITY/1.25
+			popsize = 0.2
 		8:
 			JUMP_VELOCITY = JUMP_VELOCITY/1.5
+			popsize = 0.1
 		4:
 			JUMP_VELOCITY = JUMP_VELOCITY/1.65
+			popsize = 0.075
 		2:
 			JUMP_VELOCITY = JUMP_VELOCITY/1.8
+			popsize = 0.05
 	if int(cshape.shape.radius) <= 1.9:
 		queue_free()
 	velocity.y = JUMP_VELOCITY
@@ -56,15 +63,17 @@ func _physics_process(delta):
 
 	move_and_slide()
 	
-func _check_colour(b):
-	match b:
+func _check_colour():
+	match colour:
 		"pink":
 			mesh.texture = load("res://assets/balls/pinkballtexture.tres")
+			popcolour = Color.PINK
 		"red":
 			mesh.texture = load("res://assets/balls/redballtexture.tres")
+			popcolour = Color.RED
 
-func _check_mesh(b):
-	match b:
+func _check_mesh():
+	match typamesh:
 		"octagon":
 			mesh.mesh = load("res://assets/balls/Octagon.tres").duplicate()
 		"decagon":
@@ -88,4 +97,11 @@ func _split(level):
 	child2.typamesh = typamesh
 	child2.direction = false
 	$".".get_parent().call_deferred("add_child", child2)
+	
+	var pop = load("res://scenes/pop.tscn").instantiate()
+	pop.position = position
+	pop.scale = Vector2(popsize, popsize)
+	pop.modulate = popcolour
+	$".".get_parent().call_deferred("add_child", pop)
+	
 	queue_free()

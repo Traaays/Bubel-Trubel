@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://cfjhl4wadob0i"]
+
+[ext_resource type="Script" path="res://scripts/level2.gd" id="1_cgv2e"]
+[ext_resource type="Texture2D" uid="uid://ceqa0pqs6yjqa" path="res://assets/sprites/bacckground.png" id="2_i62cq"]
+[ext_resource type="PackedScene" uid="uid://b4xf4bgafr24q" path="res://scenes/test_level.tscn" id="3_7vt58"]
+[ext_resource type="PackedScene" uid="uid://dy4vpfkmtq0ua" path="res://scenes/ball.tscn" id="4_lbhbn"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_eb4xm"]
+
+[node name="level2" type="Node2D"]
+script = ExtResource("1_cgv2e")
+metadata/level = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.845168, 0.739726, 0.852463, 1)
+self_modulate = Color(0.454524, 0.454524, 0.454524, 1)
+z_index = 5
+position = Vector2(132, 232)
+scale = Vector2(16.5, 1)
+texture = ExtResource("2_i62cq")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+material = SubResource("CanvasItemMaterial_eb4xm")
+
+[node name="Sprite2D" type="Polygon2D" parent="ParallaxBackground/ParallaxLayer"]
+texture_repeat = 2
+color = Color(0.637843, 0.637843, 0.637843, 1)
+texture = ExtResource("2_i62cq")
+polygon = PackedVector2Array(-90, 459, -8, -24, 265, -24, 394, 188)
+uv = PackedVector2Array(0, 48, 0, 0, 16, 0, 16, 48)
+polygons = [PackedInt32Array(0, 1, 2, 3)]
+
+[node name="testLevel" parent="." instance=ExtResource("3_7vt58")]
+
+[node name="Ball" parent="testLevel" instance=ExtResource("4_lbhbn")]
+position = Vector2(219, 176)
+colour = "red"
+
+[node name="Ball2" parent="testLevel" instance=ExtResource("4_lbhbn")]
+position = Vector2(219, 176)
+size = 16
