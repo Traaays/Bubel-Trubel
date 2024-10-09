@@ -8,7 +8,7 @@ class_name cnBall
 
 @export var size = 32
 @export var colour = "pink"
-@export var typamesh = "octagon"
+@export var rings: int
 
 @export var direction = true
 
@@ -18,7 +18,7 @@ var JUMP_VELOCITY = -225.0
 var firstBall = true
 
 var popsize
-var popcolour
+var popcolour = Color.GHOST_WHITE
 
 func _ready():
 	if firstBall == true:
@@ -64,20 +64,18 @@ func _physics_process(delta):
 	move_and_slide()
 	
 func _check_colour():
-	match colour:
-		"pink":
-			mesh.texture = load("res://assets/balls/pinkballtexture.tres")
-			popcolour = Color.PINK
-		"red":
-			mesh.texture = load("res://assets/balls/redballtexture.tres")
-			popcolour = Color.RED
+	mesh.texture = load("res://assets/balls/" + str(colour) + ".tres")
+	popcolour = Color(colour)
+	#match colour:
+		#"pink":
+			#popcolour = Color.PINK
+		#"red":
+			#popcolour = Color.RED
 
 func _check_mesh():
-	match typamesh:
-		"octagon":
-			mesh.mesh = load("res://assets/balls/Octagon.tres").duplicate()
-		"decagon":
-			mesh.mesh = load("res://assets/balls/Decagon.tres").duplicate()
+	mesh.mesh = load("res://assets/balls/Mesh.tres").duplicate()
+	mesh.mesh.rings = rings
+	
 	
 func _split(level):
 	MySingleton.score += ball.cshape.shape.radius
@@ -86,7 +84,7 @@ func _split(level):
 	child1.firstBall = false
 	child1.position = position
 	child1.colour = colour
-	child1.typamesh = typamesh
+	child1.rings = rings
 	$".".get_parent().call_deferred("add_child", child1)
 	
 	var child2 = load("res://scenes/ball.tscn").instantiate()
@@ -94,7 +92,7 @@ func _split(level):
 	child2.firstBall = false
 	child2.position = position
 	child2.colour = colour
-	child2.typamesh = typamesh
+	child2.rings = rings
 	child2.direction = false
 	$".".get_parent().call_deferred("add_child", child2)
 	

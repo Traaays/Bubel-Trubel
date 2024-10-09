@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dl6f75uw3hbml"]
+[gd_scene load_steps=10 format=3 uid="uid://dl6f75uw3hbml"]
 
 [ext_resource type="Texture2D" uid="uid://yj5jmjythgch" path="res://assets/sprites/pop.png" id="1_rwhaq"]
 [ext_resource type="Script" path="res://scripts/pop.gd" id="2_e0mj4"]
+[ext_resource type="AudioStream" uid="uid://b2i86o5ug2diq" path="res://assets/sounds/pop.wav" id="3_ocj1f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dt068"]
 atlas = ExtResource("1_rwhaq")
@@ -52,3 +53,7 @@ autoplay = "default"
 frame = 4
 frame_progress = 1.0
 script = ExtResource("2_e0mj4")
+
+[node name="popsound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ocj1f")
+autoplay = true

@@ -13,7 +13,7 @@ metadata/level = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.845168, 0.739726, 0.852463, 1)
-self_modulate = Color(0.454524, 0.454524, 0.454524, 1)
+self_modulate = Color(0.45, 0.45, 0.45, 1)
 z_index = 5
 position = Vector2(132, 232)
 scale = Vector2(16.5, 1)
@@ -36,8 +36,11 @@ polygons = [PackedInt32Array(0, 1, 2, 3)]
 
 [node name="Ball" parent="testLevel" instance=ExtResource("4_lbhbn")]
 position = Vector2(219, 176)
-colour = "red"
+colour = "white"
+rings = 6
 
 [node name="Ball2" parent="testLevel" instance=ExtResource("4_lbhbn")]
 position = Vector2(219, 176)
 size = 16
+colour = "red"
+rings = 1

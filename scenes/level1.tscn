@@ -33,11 +33,11 @@ texture = ExtResource("1_6bpg6")
 
 [node name="Ball" parent="testLevel" instance=ExtResource("3_srrss")]
 position = Vector2(208, 152)
-typamesh = "decagon"
+rings = 4
 direction = false
 
 [node name="Ball2" parent="testLevel" instance=ExtResource("3_srrss")]
 position = Vector2(113, 63)
 size = 8
 colour = "red"
-typamesh = "decagon"
+rings = 3

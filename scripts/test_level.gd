@@ -14,6 +14,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	print (MySingleton.score)
+	print (MySingleton.allscore)
+	
 	amountOfChild = $".".get_child_count()
 	$UI/livesLabel.text = ("lives = " + str(MySingleton.lives))
 	$UI/scoreLabel.text = ("score = " + str(MySingleton.score + MySingleton.allscore))

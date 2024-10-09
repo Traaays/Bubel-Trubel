@@ -10,14 +10,9 @@ var currentLevel = 1
 var maxLevel = 2
 
 var skin = 1
-var maxSkin = 5
+var maxSkin = 6
 #make an invisible skin as the last one, also make one unlockable by winning, maybe like a crown
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	lives = maxLives
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if allscore >= 100000:
+		get_tree().quit()

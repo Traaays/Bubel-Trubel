@@ -57,10 +57,8 @@ func _on_area_2d_body_entered(body):
 			MySingleton.lives -= 1
 			if MySingleton.highscore < MySingleton.allscore + MySingleton.score:
 				MySingleton.highscore = MySingleton.allscore + MySingleton.score
-			MySingleton.score = MySingleton.allscore
 			get_tree().call_deferred("reload_current_scene")
 		else:
-			MySingleton.lives = MySingleton.maxLives
 			if MySingleton.highscore < MySingleton.allscore + MySingleton.score:
 				MySingleton.highscore = MySingleton.allscore + MySingleton.score
 			MySingleton.allscore = 0
@@ -84,7 +82,7 @@ func _check_gh():
 		2:
 			$ShootArea2D/MeshInstance2D.texture = load("res://assets/hooks/evil.tres")
 		3:
-			pass
+			$ShootArea2D/MeshInstance2D.texture = load("res://assets/hooks/grey.tres")
 		4:
 			$ShootArea2D/MeshInstance2D.texture = load("res://assets/sprites/spritesheetgameboy.png")
 		5:

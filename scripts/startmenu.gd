@@ -16,10 +16,14 @@ func _ready():
 	skin.visible = false
 	level.visible = false
 	mask.visible = false
+	MySingleton.lives = MySingleton.maxLives
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	skin.text = str(MySingleton.skin)
+	if MySingleton.skin != 6:
+		skin.text = str(MySingleton.skin)
+	else:
+		skin.text = "33% xd"
 	level.text = str(MySingleton.currentLevel)
 	highscore.text = ("highscore: " + str(MySingleton.highscore))
 	pif.rotation.y -= 0.02
