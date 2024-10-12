@@ -107,3 +107,7 @@ func _process(delta):
 		scalel.text = str(2)
 	else:
 		scalel.text = str(1)
+	if DisplayServer.window_get_mode() == 4 or DisplayServer.window_get_mode() == 3:
+		fullscreen.text = "yes"
+	else:
+		fullscreen.text = "no"
