@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dckim0isp2i53"
-path="res://.godot/imported/icon.png-859e9aab0178caff4ca6b8ed82e4677d.ctex"
+uid="uid://bam3c3x5xercx"
+path="res://.godot/imported/standmixeled.png-210b1ef65501294c8da61322c6378c8d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/menu/icon.png"
-dest_files=["res://.godot/imported/icon.png-859e9aab0178caff4ca6b8ed82e4677d.ctex"]
+source_file="res://assets/aseprite/standmixeled.png"
+dest_files=["res://.godot/imported/standmixeled.png-210b1ef65501294c8da61322c6378c8d.ctex"]
 
 [params]
 

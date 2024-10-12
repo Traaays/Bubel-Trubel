@@ -29,6 +29,7 @@ func _process(delta):
 		get_tree().call_deferred("change_scene_to_file", "res://scenes/startmenu.tscn")
 	if Input.is_action_just_pressed("Reset") and startTimer.is_stopped() and get_tree().paused == true:
 		get_tree().paused = false
+		MySingleton.lives -= 1
 		if MySingleton.highscore < MySingleton.allscore + MySingleton.score:
 			MySingleton.highscore = MySingleton.allscore + MySingleton.score
 		get_tree().call_deferred("reload_current_scene")

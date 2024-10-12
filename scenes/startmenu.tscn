@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://d1tvirhgpnyxd"]
+[gd_scene load_steps=19 format=3 uid="uid://d1tvirhgpnyxd"]
 
 [ext_resource type="Shader" path="res://shaders/main_menu.gdshader" id="1_e2h3x"]
 [ext_resource type="Script" path="res://scripts/startmenu.gd" id="1_i8ogi"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://blplpq3sh84k6" path="res://assets/menu/3.png" id="4_hgaiq"]
 [ext_resource type="Texture2D" uid="uid://dwlyf0llwdrof" path="res://assets/menu/buttons2.png" id="5_8a74o"]
 [ext_resource type="Texture2D" uid="uid://b6mdvd1x5nbej" path="res://assets/menu/selectstart.png" id="5_jxyxw"]
+[ext_resource type="Texture2D" uid="uid://cugvh51pksbi5" path="res://assets/menu/buttons3.png" id="6_w6e26"]
 [ext_resource type="Texture2D" uid="uid://cgwb6hmsk0kug" path="res://assets/menu/logo.png" id="9_2nm3k"]
 [ext_resource type="Texture2D" uid="uid://bwy72rrbpfj0t" path="res://assets/menu/mask.png" id="11_2ee1v"]
 [ext_resource type="SpriteFrames" uid="uid://ctayxkvsuwtmr" path="res://assets/devil.tres" id="12_y77nq"]
@@ -26,6 +27,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("5_8a74o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_w6e26")
 }],
 "loop": true,
 "name": &"default",
@@ -75,13 +79,21 @@ offset_bottom = 161.0
 theme_override_font_sizes/font_size = 32
 text = "1"
 
-[node name="levelLabel" type="Label" parent="."]
-offset_left = 219.0
-offset_top = 144.0
-offset_right = 259.0
-offset_bottom = 189.0
+[node name="scaleLabel" type="Label" parent="."]
+offset_left = 128.0
+offset_top = 147.0
+offset_right = 168.0
+offset_bottom = 192.0
 theme_override_font_sizes/font_size = 32
-text = "1"
+text = "3"
+
+[node name="fullscreenLabel" type="Label" parent="."]
+offset_left = 203.0
+offset_top = 116.0
+offset_right = 254.0
+offset_bottom = 161.0
+theme_override_font_sizes/font_size = 32
+text = "yes"
 
 [node name="highscoreLabel" type="Label" parent="."]
 offset_top = 210.0

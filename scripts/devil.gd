@@ -72,7 +72,7 @@ func _on_shoot_area_2d_body_entered(body):
 			shoot.position.y = 0
 	elif body is cnBall:
 		casting = false
-		body._split(body)
+		body._split()
 		shoot.position.y = 0
 		
 func _check_gh():
@@ -82,8 +82,12 @@ func _check_gh():
 		2:
 			$ShootArea2D/MeshInstance2D.texture = load("res://assets/hooks/evil.tres")
 		3:
-			$ShootArea2D/MeshInstance2D.texture = load("res://assets/hooks/grey.tres")
-		4:
 			$ShootArea2D/MeshInstance2D.texture = load("res://assets/sprites/spritesheetgameboy.png")
-		5:
+		4:
 			$ShootArea2D/MeshInstance2D.texture = load("res://assets/sprites/spritesheetvirtualboy.png")
+		5:
+			$ShootArea2D/MeshInstance2D.texture = load("res://assets/hooks/white.tres")
+		6:
+			$ShootArea2D/MeshInstance2D.texture = load("res://assets/hooks/pump.tres")
+		7:
+			$ShootArea2D/MeshInstance2D.texture = load("res://assets/hooks/joki.jpg")

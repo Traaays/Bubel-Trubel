@@ -77,7 +77,7 @@ func _check_mesh():
 	mesh.mesh.rings = rings
 	
 	
-func _split(level):
+func _split():
 	MySingleton.score += ball.cshape.shape.radius
 	var child1 = load("res://scenes/ball.tscn").instantiate()
 	child1.size = mesh.mesh.radius/2
