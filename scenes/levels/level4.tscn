@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=3 uid="uid://cfjhl4wadob0i"]
+
+[ext_resource type="Script" path="res://scripts/level4.gd" id="1_tgvdq"]
+[ext_resource type="Texture2D" uid="uid://ceqa0pqs6yjqa" path="res://assets/backgrounds/bacckground4.png" id="2_yh7w8"]
+[ext_resource type="PackedScene" uid="uid://b4xf4bgafr24q" path="res://scenes/test_level.tscn" id="3_0b81g"]
+[ext_resource type="PackedScene" uid="uid://dy4vpfkmtq0ua" path="res://scenes/ball.tscn" id="4_0i6el"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_eb4xm"]
+
+[node name="level4" type="Node2D"]
+script = ExtResource("1_tgvdq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.845168, 0.739726, 0.852463, 1)
+self_modulate = Color(0.45, 0.45, 0.45, 1)
+z_index = 5
+position = Vector2(132, 232)
+scale = Vector2(16.5, 1)
+texture = ExtResource("2_yh7w8")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+material = SubResource("CanvasItemMaterial_eb4xm")
+
+[node name="Sprite2D" type="Polygon2D" parent="ParallaxBackground/ParallaxLayer"]
+texture_repeat = 2
+color = Color(0.637843, 0.637843, 0.637843, 1)
+texture = ExtResource("2_yh7w8")
+polygon = PackedVector2Array(-90, 459, -8, -24, 265, -24, 394, 188)
+uv = PackedVector2Array(0, 48, 0, 0, 16, 0, 16, 48)
+polygons = [PackedInt32Array(0, 1, 2, 3)]
+
+[node name="testLevel" parent="." instance=ExtResource("3_0b81g")]
+
+[node name="Ball" parent="testLevel" instance=ExtResource("4_0i6el")]
+position = Vector2(219, 176)
+colour = "white"
+rings = 6
+
+[node name="Ball2" parent="testLevel" instance=ExtResource("4_0i6el")]
+position = Vector2(219, 176)
+size = 16
+colour = "red"
+rings = 4
+
+[node name="Ball3" parent="testLevel" instance=ExtResource("4_0i6el")]
+position = Vector2(113, 89)
+size = 8
+colour = "white"
+rings = 5
+direction = false
+
+[node name="Ball4" parent="testLevel" instance=ExtResource("4_0i6el")]
+position = Vector2(113, 89)
+size = 8
+colour = "red"
+rings = 5

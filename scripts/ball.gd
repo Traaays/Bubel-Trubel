@@ -44,8 +44,6 @@ func _ready():
 		2:
 			JUMP_VELOCITY = JUMP_VELOCITY/1.8
 			popsize = 0.05
-	if int(cshape.shape.radius) <= 1.9:
-		queue_free()
 	velocity.y = JUMP_VELOCITY
 func _physics_process(delta):
 	# Add the gravity.
@@ -66,11 +64,6 @@ func _physics_process(delta):
 func _check_colour():
 	mesh.texture = load("res://assets/balls/" + str(colour) + ".tres")
 	popcolour = Color(colour)
-	#match colour:
-		#"pink":
-			#popcolour = Color.PINK
-		#"red":
-			#popcolour = Color.RED
 
 func _check_mesh():
 	mesh.mesh = load("res://assets/balls/Mesh.tres").duplicate()
@@ -78,28 +71,29 @@ func _check_mesh():
 	
 	
 func _split():
+	if mesh.mesh.radius > 2:
+		var child1 = load("res://scenes/ball.tscn").instantiate()
+		child1.size = mesh.mesh.radius/2
+		child1.firstBall = false
+		child1.position = position
+		child1.colour = colour
+		child1.rings = rings
+		$".".get_parent().call_deferred("add_child", child1)
+		
+		var child2 = load("res://scenes/ball.tscn").instantiate()
+		child2.size = mesh.mesh.radius/2
+		child2.firstBall = false
+		child2.position = position
+		child2.colour = colour
+		child2.rings = rings
+		child2.direction = false
+		$".".get_parent().call_deferred("add_child", child2)
+	
 	MySingleton.score += ball.cshape.shape.radius
-	var child1 = load("res://scenes/ball.tscn").instantiate()
-	child1.size = mesh.mesh.radius/2
-	child1.firstBall = false
-	child1.position = position
-	child1.colour = colour
-	child1.rings = rings
-	$".".get_parent().call_deferred("add_child", child1)
-	
-	var child2 = load("res://scenes/ball.tscn").instantiate()
-	child2.size = mesh.mesh.radius/2
-	child2.firstBall = false
-	child2.position = position
-	child2.colour = colour
-	child2.rings = rings
-	child2.direction = false
-	$".".get_parent().call_deferred("add_child", child2)
-	
 	var pop = load("res://scenes/pop.tscn").instantiate()
 	pop.position = position
 	pop.scale = Vector2(popsize, popsize)
 	pop.modulate = popcolour
 	$".".get_parent().call_deferred("add_child", pop)
-	
+		
 	queue_free()

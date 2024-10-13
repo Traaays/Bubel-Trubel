@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://dao5kxis8liyd"]
+
+[ext_resource type="PackedScene" uid="uid://b4xf4bgafr24q" path="res://scenes/test_level.tscn" id="3_50osj"]
+[ext_resource type="PackedScene" uid="uid://dy4vpfkmtq0ua" path="res://scenes/ball.tscn" id="4_6hnn0"]
+
+[sub_resource type="Gradient" id="Gradient_u23jo"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.884097, 0.698022, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3x3h5"]
+gradient = SubResource("Gradient_u23jo")
+width = 1
+height = 1
+
+[node name="level2" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 265.0
+offset_bottom = 265.0
+texture = SubResource("GradientTexture2D_3x3h5")
+
+[node name="testLevel" parent="." instance=ExtResource("3_50osj")]
+
+[node name="Ball4" parent="testLevel" instance=ExtResource("4_6hnn0")]
+position = Vector2(224, 160)
+size = 8
+rings = 1
+direction = false
+
+[node name="Ball" parent="testLevel" instance=ExtResource("4_6hnn0")]
+position = Vector2(192, 160)
+size = 8
+colour = "red"
+rings = 2
+direction = false
+
+[node name="Ball2" parent="testLevel" instance=ExtResource("4_6hnn0")]
+position = Vector2(160, 160)
+size = 8
+colour = "yellow"
+rings = 3
+direction = false
+
+[node name="Floor" type="ColorRect" parent="."]
+offset_top = 208.0
+offset_right = 256.0
+offset_bottom = 224.0
+color = Color(0.027451, 0.0196078, 0.0235294, 1)

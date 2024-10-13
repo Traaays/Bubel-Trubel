@@ -1,8 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://b4xf4bgafr24q"]
+[gd_scene load_steps=12 format=3 uid="uid://b4xf4bgafr24q"]
 
 [ext_resource type="PackedScene" uid="uid://bnig7a8u888r7" path="res://scenes/devil.tscn" id="1_13hi3"]
 [ext_resource type="Script" path="res://scripts/test_level.gd" id="1_qghfq"]
+[ext_resource type="Shader" path="res://shaders/xBRZ.gdshader" id="1_xla7y"]
 [ext_resource type="PackedScene" uid="uid://b0bl4wcxcnryi" path="res://scenes/pause_menu.tscn" id="3_aqr3w"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6eqyj"]
+shader = ExtResource("1_xla7y")
+shader_parameter/type = 2
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_d7p48"]
 
@@ -22,6 +27,7 @@ size = Vector2(8, 224)
 size = Vector2(1, 224)
 
 [node name="testLevel" type="Node2D"]
+material = SubResource("ShaderMaterial_6eqyj")
 script = ExtResource("1_qghfq")
 
 [node name="Devil" parent="." instance=ExtResource("1_13hi3")]

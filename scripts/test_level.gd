@@ -6,12 +6,9 @@ var amountAtBeginning = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	MySingleton.score = 0
-	MySingleton.currentLevel = $".".get_parent().get_meta("level")
 	amountOfChild = $".".get_child_count()
 	amountAtBeginning = amountOfChild - amountAtBeginning
-	
 	MySingleton.discord_rpc.refresh(false)
-	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -21,7 +18,6 @@ func _process(delta):
 	if amountOfChild == amountAtBeginning:
 		_end_of_level()
 		
-	
 func _on_walls_body_entered(body):
 	if body is cnBall:
 		if body.direction == false:
@@ -36,4 +32,5 @@ func _on_ceiling_area_body_entered(body):
 func _end_of_level():
 	MySingleton.allscore += MySingleton.score
 	MySingleton.discord_rpc.stamp_refresh()
-	get_tree().change_scene_to_file("res://scenes/level" + str(MySingleton.currentLevel + 1) + ".tscn")
+	MySingleton.currentLevel += 1
+	get_tree().change_scene_to_file("res://scenes/levels/level" + str(MySingleton.currentLevel) + ".tscn")

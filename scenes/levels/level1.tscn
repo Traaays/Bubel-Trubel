@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://dhhxn0s227sw5"]
+
+[ext_resource type="Texture2D" uid="uid://b7rnqtfinvy7q" path="res://icon.svg" id="1_6bpg6"]
+[ext_resource type="PackedScene" uid="uid://b4xf4bgafr24q" path="res://scenes/test_level.tscn" id="2_g2jjp"]
+[ext_resource type="PackedScene" uid="uid://dy4vpfkmtq0ua" path="res://scenes/ball.tscn" id="3_srrss"]
+
+[sub_resource type="Gradient" id="Gradient_ly566"]
+colors = PackedColorArray(0.0862745, 0.0941176, 0.180392, 1, 0.583441, 0.625746, 0.885131, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rosuf"]
+gradient = SubResource("Gradient_ly566")
+width = 256
+height = 224
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[node name="level1" type="Node2D"]
+metadata/level = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 256.0
+offset_bottom = 224.0
+texture = SubResource("GradientTexture2D_rosuf")
+flip_v = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 5
+position = Vector2(129.5, 906.5)
+scale = Vector2(12.6953, 10.9141)
+texture = ExtResource("1_6bpg6")
+
+[node name="testLevel" parent="." instance=ExtResource("2_g2jjp")]
+
+[node name="Ball" parent="testLevel" instance=ExtResource("3_srrss")]
+position = Vector2(208, 152)
+rings = 4
+direction = false

@@ -15,12 +15,8 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	skin.visible = false
-	mask.visible = false
-	fullscreen.visible = false
-	scalel.visible = false
 	MySingleton.lives = MySingleton.maxLives
-	
+	MySingleton.currentLevel = 1
 	MySingleton.discord_rpc.refresh(true)
 	MySingleton.discord_rpc.stamp_refresh()
 
@@ -31,9 +27,10 @@ func _process(delta):
 	else:
 		skin.text = "33% xd"
 	highscore.text = ("highscore: " + str(MySingleton.highscore))
-	pif.rotation.y -= 0.02
+	pif.rotation.y -= 0.02 * delta * 60
 	pif.animation = str(MySingleton.skin) + "run"
 	pifshadow.animation = str(MySingleton.skin) + "run"
+	check_display()
 
 	if Input.is_action_just_pressed("Select"):
 		if pick.frame <= 1:
@@ -45,7 +42,7 @@ func _process(delta):
 			0:
 				match buttons.frame:
 					0:
-						get_tree().call_deferred("change_scene_to_file", "res://scenes/level1.tscn")
+						get_tree().call_deferred("change_scene_to_file", "res://scenes/levels/level1.tscn")
 					1:
 						if MySingleton.skin < MySingleton.maxSkin:
 							MySingleton.skin += 1
@@ -98,7 +95,8 @@ func _process(delta):
 						scalel.visible = false
 						skin.visible = true
 						logo.visible = false
-	
+
+func check_display():
 	if get_window().size.x >= 1024 and get_window().size.y >= 896:
 		scalel.text = str(4)
 	elif get_window().size.x >= 768 and get_window().size.y >= 672:
