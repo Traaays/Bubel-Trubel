@@ -20,6 +20,9 @@ var firstBall = true
 var popsize
 var popcolour = Color.GHOST_WHITE
 
+static var ballPL = preload("res://scenes/ball.tscn")
+static var meshPL = preload("res://assets/balls/Mesh.tres")
+
 func _ready():
 	if firstBall == true:
 		$".".get_parent().amountAtBeginning += 1
@@ -66,13 +69,13 @@ func _check_colour():
 	popcolour = Color(colour)
 
 func _check_mesh():
-	mesh.mesh = load("res://assets/balls/Mesh.tres").duplicate()
+	mesh.mesh = meshPL.duplicate()
 	mesh.mesh.rings = rings
 	
 	
 func _split():
 	if mesh.mesh.radius > 2:
-		var child1 = load("res://scenes/ball.tscn").instantiate()
+		var child1 = ballPL.instantiate()
 		child1.size = mesh.mesh.radius/2
 		child1.firstBall = false
 		child1.position = position
@@ -80,7 +83,7 @@ func _split():
 		child1.rings = rings
 		$".".get_parent().call_deferred("add_child", child1)
 		
-		var child2 = load("res://scenes/ball.tscn").instantiate()
+		var child2 = ballPL.instantiate()
 		child2.size = mesh.mesh.radius/2
 		child2.firstBall = false
 		child2.position = position

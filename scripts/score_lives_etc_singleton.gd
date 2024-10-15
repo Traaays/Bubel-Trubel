@@ -20,8 +20,8 @@ func _process(delta):
 		get_tree().quit()
 	if Input.is_action_just_pressed("F4"):
 		if DisplayServer.window_get_mode() == 4 or DisplayServer.window_get_mode() == 3:
-			DisplayServer.window_set_mode(0)
+			DisplayServer.window_set_mode(0 as DisplayServer.WindowMode)
 		else:
-			DisplayServer.window_set_mode(4)
+			DisplayServer.window_set_mode(4 as DisplayServer.WindowMode)
 
 		
