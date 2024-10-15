@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwlyf0llwdrof"
-path="res://.godot/imported/buttons2.png-a79dde837fac8724dad965bcc19eb6c4.ctex"
+uid="uid://o2uvpwr6qfgq"
+path="res://.godot/imported/spritesheetvirtualboy.png-620d73de7e3b81fb193626f6e3ce00d4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/menu/buttons2.png"
-dest_files=["res://.godot/imported/buttons2.png-a79dde837fac8724dad965bcc19eb6c4.ctex"]
+source_file="res://assets/sprites/devils/spritesheetvirtualboy.png"
+dest_files=["res://.godot/imported/spritesheetvirtualboy.png-620d73de7e3b81fb193626f6e3ce00d4.ctex"]
 
 [params]
 
@@ -21,7 +21,7 @@ compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -31,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://yywpoqy6c6bw"
-path="res://.godot/imported/buttons.png-2000f6c53fd94301ad924e84cd74544b.ctex"
+uid="uid://vikgcl728th0"
+path="res://.godot/imported/spritesheetpifpafpump.png-93fab5f355b0afc2da24b6734646e654.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/menu/buttons.png"
-dest_files=["res://.godot/imported/buttons.png-2000f6c53fd94301ad924e84cd74544b.ctex"]
+source_file="res://assets/sprites/devils/spritesheetpifpafpump.png"
+dest_files=["res://.godot/imported/spritesheetpifpafpump.png-93fab5f355b0afc2da24b6734646e654.ctex"]
 
 [params]
 
@@ -21,7 +21,7 @@ compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -31,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0

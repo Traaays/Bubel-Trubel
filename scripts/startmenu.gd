@@ -17,19 +17,17 @@ extends Node2D
 func _ready():
 	MySingleton.lives = MySingleton.maxLives
 	MySingleton.currentLevel = 1
-	MySingleton.discord_rpc.refresh(true)
-	MySingleton.discord_rpc.stamp_refresh()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if MySingleton.skin != 7:
-		skin.text = str(MySingleton.skin)
+	if cnDevil.skin != 7:
+		skin.text = str(cnDevil.skin)
 	else:
 		skin.text = "33% xd"
 	highscore.text = ("highscore: " + str(MySingleton.highscore))
 	pif.rotation.y -= 0.02 * delta * 60
-	pif.animation = str(MySingleton.skin) + "run"
-	pifshadow.animation = str(MySingleton.skin) + "run"
+	pif.animation = str(cnDevil.skin) + "run"
+	pifshadow.animation = str(cnDevil.skin) + "run"
 	check_display()
 
 	if Input.is_action_just_pressed("Select"):
@@ -44,16 +42,12 @@ func _process(delta):
 					0:
 						get_tree().call_deferred("change_scene_to_file", "res://scenes/levels/level1.tscn")
 					1:
-						if MySingleton.skin < MySingleton.maxSkin:
-							MySingleton.skin += 1
+						if cnDevil.skin < MySingleton.maxSkin:
+							cnDevil.skin += 1
 						else: 
-							MySingleton.skin = 1
-						MySingleton.discord_rpc.refresh(true)
+							cnDevil.skin = 1
 					2:
-						if DisplayServer.window_get_mode() == 4 or DisplayServer.window_get_mode() == 3:
-							DisplayServer.window_set_mode(0)
-						else:
-							DisplayServer.window_set_mode(4)
+						MySingleton.fullscreen()
 			1:
 				match buttons.frame:
 					0:

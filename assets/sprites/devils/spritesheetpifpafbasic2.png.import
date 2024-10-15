@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://o2uvpwr6qfgq"
-path="res://.godot/imported/spritesheetvirtualboy.png-435b378ad972ebf7e89bca800cc7a821.ctex"
+uid="uid://8d20bbkte76p"
+path="res://.godot/imported/spritesheetpifpafbasic2.png-b4b7d28f02f0218ece33640fdd3ed885.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/spritesheetvirtualboy.png"
-dest_files=["res://.godot/imported/spritesheetvirtualboy.png-435b378ad972ebf7e89bca800cc7a821.ctex"]
+source_file="res://assets/sprites/devils/spritesheetpifpafbasic2.png"
+dest_files=["res://.godot/imported/spritesheetpifpafbasic2.png-b4b7d28f02f0218ece33640fdd3ed885.ctex"]
 
 [params]
 

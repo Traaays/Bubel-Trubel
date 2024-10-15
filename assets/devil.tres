@@ -1,12 +1,12 @@
 [gd_resource type="SpriteFrames" load_steps=29 format=3 uid="uid://ctayxkvsuwtmr"]
 
-[ext_resource type="Texture2D" uid="uid://ch13hq2dxhlof" path="res://assets/sprites/spritesheetpifpafevil.png" id="1_u5l3m"]
-[ext_resource type="Texture2D" uid="uid://8d20bbkte76p" path="res://assets/sprites/spritesheetpifpafbasic2.png" id="2_8b4ki"]
-[ext_resource type="Texture2D" uid="uid://dwjockln6u737" path="res://assets/sprites/spritesheetpifpafbasic.png" id="2_87poe"]
-[ext_resource type="Texture2D" uid="uid://daf4c30sowfpi" path="res://assets/sprites/spritesheetgameboy.png" id="4_pfosx"]
-[ext_resource type="Texture2D" uid="uid://o2uvpwr6qfgq" path="res://assets/sprites/spritesheetvirtualboy.png" id="5_rfb4e"]
-[ext_resource type="Texture2D" uid="uid://vikgcl728th0" path="res://assets/sprites/spritesheetpifpafpump.png" id="6_ecldg"]
-[ext_resource type="Texture2D" uid="uid://brw68hcg3fbha" path="res://assets/sprites/spritesheet33.png" id="6_h4id2"]
+[ext_resource type="Texture2D" uid="uid://ch13hq2dxhlof" path="res://assets/sprites/devils/spritesheetpifpafevil.png" id="1_u5l3m"]
+[ext_resource type="Texture2D" uid="uid://8d20bbkte76p" path="res://assets/sprites/devils/spritesheetpifpafbasic2.png" id="2_8b4ki"]
+[ext_resource type="Texture2D" uid="uid://dwjockln6u737" path="res://assets/sprites/devils/spritesheetpifpafbasic.png" id="2_87poe"]
+[ext_resource type="Texture2D" uid="uid://daf4c30sowfpi" path="res://assets/sprites/devils/spritesheetgameboy.png" id="4_pfosx"]
+[ext_resource type="Texture2D" uid="uid://o2uvpwr6qfgq" path="res://assets/sprites/devils/spritesheetvirtualboy.png" id="5_rfb4e"]
+[ext_resource type="Texture2D" uid="uid://vikgcl728th0" path="res://assets/sprites/devils/spritesheetpifpafpump.png" id="6_ecldg"]
+[ext_resource type="Texture2D" uid="uid://brw68hcg3fbha" path="res://assets/sprites/devils/spritesheet33.png" id="6_h4id2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2jyy1"]
 atlas = ExtResource("2_87poe")

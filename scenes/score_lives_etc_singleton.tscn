@@ -1,11 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://c6ujf0dqx6ex"]
+[gd_scene load_steps=2 format=3 uid="uid://c6ujf0dqx6ex"]
 
 [ext_resource type="Script" path="res://scripts/score_lives_etc_singleton.gd" id="1_ppsyy"]
-[ext_resource type="Script" path="res://scripts/discord_rpc.gd" id="2_3ns5i"]
 
 [node name="ScoreLivesEtcSingleton" type="Node2D"]
 process_mode = 3
 script = ExtResource("1_ppsyy")
-
-[node name="DiscordRPC" type="Node2D" parent="."]
-script = ExtResource("2_3ns5i")

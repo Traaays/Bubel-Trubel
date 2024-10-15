@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://daf4c30sowfpi"
-path="res://.godot/imported/spritesheetgameboy.png-e411fc816a4ca0a3ca0094a0f34b84ad.ctex"
+path="res://.godot/imported/spritesheetgameboy.png-c826f822189d3e0dbfa09901c08469eb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/spritesheetgameboy.png"
-dest_files=["res://.godot/imported/spritesheetgameboy.png-e411fc816a4ca0a3ca0094a0f34b84ad.ctex"]
+source_file="res://assets/sprites/devils/spritesheetgameboy.png"
+dest_files=["res://.godot/imported/spritesheetgameboy.png-c826f822189d3e0dbfa09901c08469eb.ctex"]
 
 [params]
 

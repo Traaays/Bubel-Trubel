@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8d20bbkte76p"
-path="res://.godot/imported/spritesheetpifpafbasic2.png-fc193e3113b955839b78aa19e52440e9.ctex"
+uid="uid://ch13hq2dxhlof"
+path="res://.godot/imported/spritesheetpifpafevil.png-57a351eb1486468f358f0527dba8ab55.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/spritesheetpifpafbasic2.png"
-dest_files=["res://.godot/imported/spritesheetpifpafbasic2.png-fc193e3113b955839b78aa19e52440e9.ctex"]
+source_file="res://assets/sprites/devils/spritesheetpifpafevil.png"
+dest_files=["res://.godot/imported/spritesheetpifpafevil.png-57a351eb1486468f358f0527dba8ab55.ctex"]
 
 [params]
 
