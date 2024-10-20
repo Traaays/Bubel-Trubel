@@ -69,23 +69,16 @@ func _check_mesh():
 func _split():
 	MySingleton.score += ball.cshape.shape.radius
 	if mesh.mesh.radius > 2:
-		var child1 = ballPL.instantiate()
-		child1.size = mesh.mesh.radius/2
-		child1.firstBall = false
-		child1.position = position
-		child1.colour = colour
-		child1.rings = rings
-		$".".get_parent().call_deferred("add_child", child1)
-		
-		var child2 = ballPL.instantiate()
-		child2.size = mesh.mesh.radius/2
-		child2.firstBall = false
-		child2.position = position
-		child2.colour = colour
-		child2.rings = rings
-		child2.direction = false
-		$".".get_parent().call_deferred("add_child", child2)
-	
+		for i in 2:
+			var child = ballPL.instantiate()
+			child.size = mesh.mesh.radius/2
+			child.firstBall = false
+			child.position = position
+			child.colour = colour
+			child.rings = rings
+			if i == 1:
+				child.direction = false
+			$".".get_parent().call_deferred("add_child", child)
 	var pop = popPL.instantiate()
 	pop.position = position
 	pop.scale = Vector2(popsize, popsize)

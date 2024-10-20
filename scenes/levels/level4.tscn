@@ -35,24 +35,22 @@ polygons = [PackedInt32Array(0, 1, 2, 3)]
 
 [node name="Ball" parent="testLevel" instance=ExtResource("4_0i6el")]
 position = Vector2(219, 176)
-colour = "white"
+colour = "yellow"
 rings = 6
 
 [node name="Ball2" parent="testLevel" instance=ExtResource("4_0i6el")]
 position = Vector2(219, 176)
 size = 16
-colour = "red"
-rings = 4
+rings = 6
 
 [node name="Ball3" parent="testLevel" instance=ExtResource("4_0i6el")]
 position = Vector2(113, 89)
 size = 8
-colour = "white"
 rings = 5
 direction = false
 
 [node name="Ball4" parent="testLevel" instance=ExtResource("4_0i6el")]
 position = Vector2(113, 89)
-size = 8
-colour = "red"
+size = 4
+colour = "yellow"
 rings = 5

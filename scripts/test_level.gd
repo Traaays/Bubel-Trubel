@@ -31,5 +31,6 @@ func _on_ceiling_area_body_entered(body):
 
 func _end_of_level():
 	MySingleton.allscore += MySingleton.score
+	MySingleton.lives += 1
 	MySingleton.currentLevel += 1
 	get_tree().change_scene_to_file("res://scenes/levels/level" + str(MySingleton.currentLevel) + ".tscn")
