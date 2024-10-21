@@ -7,6 +7,7 @@ func _process(delta):
 		$Icon.position.y += delta * 5
 	else:
 		$Icon.position.x = move_toward($Icon.position.x, 13, delta * 50)
+	
 
 func _on_timer_timeout():
 	match texts:
@@ -47,4 +48,7 @@ func _on_timer_timeout():
 		11:
 			$colon3.text = "youre pretty slow!"
 			$colon3.visible = true
+			$timer.start(10)
+		12:
+			$colon3.text = "youre pretty"
 	texts += 1

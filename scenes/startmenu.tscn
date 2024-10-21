@@ -13,7 +13,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fixq2"]
 shader = ExtResource("1_e2h3x")
 shader_parameter/scroll_speed = 0.6
-shader_parameter/scroll_y_modifier = 0.24
+shader_parameter/scroll_y_speed = -0.144
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qim0k"]
 atlas = ExtResource("4_g0r1v")

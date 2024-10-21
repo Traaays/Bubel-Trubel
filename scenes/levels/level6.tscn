@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cs3ay03vv8nek"]
+
+[ext_resource type="Script" path="res://scripts/levels/level6.gd" id="1_al80d"]
+[ext_resource type="PackedScene" uid="uid://b4xf4bgafr24q" path="res://scenes/test_level.tscn" id="3_e1a7s"]
+[ext_resource type="PackedScene" uid="uid://dy4vpfkmtq0ua" path="res://scenes/ball.tscn" id="6_1kmrx"]
+
+[node name="level6" type="Node2D"]
+script = ExtResource("1_al80d")
+
+[node name="testLevel" parent="." instance=ExtResource("3_e1a7s")]
+
+[node name="Ball" parent="testLevel" instance=ExtResource("6_1kmrx")]
+position = Vector2(114.677, 143.655)
+rings = 8
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "make this the gameboy level
+with some small balls xd"
