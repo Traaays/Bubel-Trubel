@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dy4vpfkmtq0ua"]
+[gd_scene load_steps=5 format=3 uid="uid://dy4vpfkmtq0ua"]
 
 [ext_resource type="Script" path="res://scripts/ball.gd" id="1_rvmry"]
 [ext_resource type="SphereMesh" uid="uid://bw566v74xuxqq" path="res://assets/balls/Mesh.tres" id="2_t5mco"]
+[ext_resource type="Texture2D" uid="uid://b0pf7akd7w8ig" path="res://assets/balls/web_maroon.tres" id="3_g3db8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xp628"]
 resource_local_to_scene = true
@@ -16,3 +17,4 @@ shape = SubResource("CircleShape2D_xp628")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
 mesh = ExtResource("2_t5mco")
+texture = ExtResource("3_g3db8")

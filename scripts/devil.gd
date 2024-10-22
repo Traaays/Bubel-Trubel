@@ -7,7 +7,7 @@ class_name cnDevil
 @onready var devil = $"."
 @onready var shoot = $ShootArea2D
 
-static var skin = 1
+static var skin = 3
 
 var SPEED = 60.0
 var casting = false
@@ -71,9 +71,9 @@ func _check_gh():
 		2:
 			$ShootArea2D/MeshInstance2D.texture = load("res://assets/hooks/evil.tres")
 		3:
-			$ShootArea2D/MeshInstance2D.texture = load("res://assets/sprites/spritesheetgameboy.png")
+			$ShootArea2D/MeshInstance2D.texture = load("res://assets/sprites/devils/spritesheetgameboy.png")
 		4:
-			$ShootArea2D/MeshInstance2D.texture = load("res://assets/sprites/spritesheetvirtualboy.png")
+			$ShootArea2D/MeshInstance2D.texture = load("res://assets/sprites/devils/spritesheetvirtualboy.png")
 		5:
 			$ShootArea2D/MeshInstance2D.texture = load("res://assets/hooks/white.tres")
 		6:

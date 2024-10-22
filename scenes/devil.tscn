@@ -47,7 +47,7 @@ autoplay = "1stand"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("3_s6uqa")
-animation = &"2stand"
+animation = &"1stand"
 autoplay = "1stand"
 
 [connection signal="body_entered" from="ShootArea2D" to="." method="_on_shoot_area_2d_body_entered"]

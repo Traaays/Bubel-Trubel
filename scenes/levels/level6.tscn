@@ -1,20 +1,51 @@
 [gd_scene load_steps=4 format=3 uid="uid://cs3ay03vv8nek"]
 
-[ext_resource type="Script" path="res://scripts/levels/level6.gd" id="1_al80d"]
+[ext_resource type="Texture2D" uid="uid://ekr61hbyx8cp" path="res://assets/backgrounds/vbackground.png" id="1_32lj3"]
 [ext_resource type="PackedScene" uid="uid://b4xf4bgafr24q" path="res://scenes/test_level.tscn" id="3_e1a7s"]
 [ext_resource type="PackedScene" uid="uid://dy4vpfkmtq0ua" path="res://scenes/ball.tscn" id="6_1kmrx"]
 
 [node name="level6" type="Node2D"]
-script = ExtResource("1_al80d")
+
+[node name="Vbackground" type="Sprite2D" parent="."]
+position = Vector2(128, 112)
+texture = ExtResource("1_32lj3")
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+z_index = 10
+offset_top = 208.0
+offset_right = 256.0
+offset_bottom = 209.0
+color = Color(0.937255, 0, 0, 1)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = 10
+offset_top = 209.0
+offset_right = 256.0
+offset_bottom = 224.0
+color = Color(0, 0, 0, 1)
 
 [node name="testLevel" parent="." instance=ExtResource("3_e1a7s")]
 
 [node name="Ball" parent="testLevel" instance=ExtResource("6_1kmrx")]
-position = Vector2(114.677, 143.655)
-rings = 8
+position = Vector2(144, 112)
+size = 16
+colour = "web_maroon"
+rings = 5
 
-[node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "make this the gameboy level
-with some small balls xd"
+[node name="Ball5" parent="testLevel" instance=ExtResource("6_1kmrx")]
+position = Vector2(112, 112)
+size = 16
+colour = "web_maroon"
+rings = 5
+
+[node name="Ball6" parent="testLevel" instance=ExtResource("6_1kmrx")]
+position = Vector2(176, 112)
+size = 16
+colour = "web_maroon"
+rings = 5
+
+[node name="Ball2" parent="testLevel" instance=ExtResource("6_1kmrx")]
+position = Vector2(80, 112)
+size = 16
+colour = "web_maroon"
+rings = 5
