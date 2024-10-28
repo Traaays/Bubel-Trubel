@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dao5kxis8liyd"]
 
-[ext_resource type="PackedScene" uid="uid://b4xf4bgafr24q" path="res://scenes/test_level.tscn" id="3_50osj"]
+[ext_resource type="PackedScene" uid="uid://b4xf4bgafr24q" path="res://scenes/template_level.tscn" id="3_50osj"]
 [ext_resource type="PackedScene" uid="uid://dy4vpfkmtq0ua" path="res://scenes/ball.tscn" id="4_6hnn0"]
 
 [sub_resource type="Gradient" id="Gradient_u23jo"]

@@ -7,7 +7,7 @@ class_name cnDevil
 @onready var devil = $"."
 @onready var shoot = $ShootArea2D
 
-static var skin = 3
+static var skin = 1
 
 var SPEED = 60.0
 var casting = false

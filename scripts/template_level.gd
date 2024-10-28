@@ -20,10 +20,7 @@ func _process(delta):
 		
 func _on_walls_body_entered(body):
 	if body is cnBall:
-		if body.direction == false:
-			body.direction = true
-		else:
-			body.direction = false
+		body.direction = !body.direction
 		
 func _on_ceiling_area_body_entered(body):
 	if body is cnBall:
