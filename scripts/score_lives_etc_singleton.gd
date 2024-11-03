@@ -4,8 +4,8 @@ var score = 0
 var allscore = 0
 var highscore = 0
 
-var lives = 5
-var maxLives = 5
+var lives = 3
+var maxLives = 3
 
 var currentLevel
 

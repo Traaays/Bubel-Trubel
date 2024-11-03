@@ -1,14 +1,51 @@
-[gd_scene load_steps=4 format=3 uid="uid://cs3ay03vv8nek"]
+[gd_scene load_steps=9 format=3 uid="uid://cs3ay03vv8nek"]
 
 [ext_resource type="Texture2D" uid="uid://ekr61hbyx8cp" path="res://assets/backgrounds/vbackground.png" id="1_32lj3"]
+[ext_resource type="Texture2D" uid="uid://by8dbtmvbst83" path="res://assets/backgrounds/vstars.png" id="2_gq8nb"]
 [ext_resource type="PackedScene" uid="uid://b4xf4bgafr24q" path="res://scenes/template_level.tscn" id="3_e1a7s"]
 [ext_resource type="PackedScene" uid="uid://dy4vpfkmtq0ua" path="res://scenes/ball.tscn" id="6_1kmrx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vqb35"]
+atlas = ExtResource("2_gq8nb")
+region = Rect2(0, 0, 256, 224)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h8g53"]
+atlas = ExtResource("2_gq8nb")
+region = Rect2(256, 0, 256, 224)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4oayk"]
+atlas = ExtResource("2_gq8nb")
+region = Rect2(512, 0, 256, 224)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_chuwn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vqb35")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h8g53")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4oayk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
 
 [node name="level6" type="Node2D"]
 
 [node name="Vbackground" type="Sprite2D" parent="."]
 position = Vector2(128, 112)
 texture = ExtResource("1_32lj3")
+
+[node name="stars" type="AnimatedSprite2D" parent="."]
+position = Vector2(128, 112)
+sprite_frames = SubResource("SpriteFrames_chuwn")
+autoplay = "default"
+frame_progress = 0.145486
+speed_scale = 0.5
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 z_index = 10
