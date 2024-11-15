@@ -41,7 +41,7 @@ func _physics_process(delta):
 
 	move_and_slide()
 	
-	if Input.is_action_just_pressed("Shoot") and casting == false:
+	if Input.is_action_just_pressed("Shoot") and casting == false and MySingleton.currentLevel <= 7:
 		casting = true
 		lastXPosBeforeCast = devil.position.x
 	

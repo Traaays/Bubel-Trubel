@@ -8,7 +8,10 @@ func _ready():
 	MySingleton.score = 0
 	amountOfChild = $".".get_child_count()
 	amountAtBeginning = amountOfChild - amountAtBeginning
-	$UI/livesLabel.text = ("lives = " + str(MySingleton.lives))
+	if MySingleton.currentLevel != 8:
+		$UI/livesLabel.text = ("lives = " + str(MySingleton.lives))
+	else:
+		$UI/livesLabel.text = ("lives = ∞")
 	$UI/scoreLabel.text = ("score = " + str(MySingleton.score + MySingleton.allscore))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

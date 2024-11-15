@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://cs3ay03vv8nek"]
+[gd_scene load_steps=15 format=3 uid="uid://cs3ay03vv8nek"]
 
 [ext_resource type="Texture2D" uid="uid://ekr61hbyx8cp" path="res://assets/backgrounds/vbackground.png" id="1_32lj3"]
+[ext_resource type="Script" path="res://scripts/levels/level6.gd" id="1_iqq8r"]
 [ext_resource type="Texture2D" uid="uid://by8dbtmvbst83" path="res://assets/backgrounds/vstars.png" id="2_gq8nb"]
 [ext_resource type="PackedScene" uid="uid://b4xf4bgafr24q" path="res://scenes/template_level.tscn" id="3_e1a7s"]
+[ext_resource type="Texture2D" uid="uid://d2gtt2ojbqp0c" path="res://assets/misc/jack.png" id="5_jws6l"]
 [ext_resource type="PackedScene" uid="uid://dy4vpfkmtq0ua" path="res://scenes/ball.tscn" id="6_1kmrx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vqb35"]
@@ -34,7 +36,37 @@ animations = [{
 "speed": 1.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ko7tx"]
+atlas = ExtResource("5_jws6l")
+region = Rect2(0, 0, 27, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tjr5x"]
+atlas = ExtResource("5_jws6l")
+region = Rect2(27, 0, 27, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eat4b"]
+atlas = ExtResource("5_jws6l")
+region = Rect2(54, 0, 27, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m607n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ko7tx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tjr5x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eat4b")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="level6" type="Node2D"]
+script = ExtResource("1_iqq8r")
 
 [node name="Vbackground" type="Sprite2D" parent="."]
 position = Vector2(128, 112)
@@ -45,7 +77,12 @@ position = Vector2(128, 112)
 sprite_frames = SubResource("SpriteFrames_chuwn")
 autoplay = "default"
 frame_progress = 0.145486
-speed_scale = 0.5
+
+[node name="Jack" type="AnimatedSprite2D" parent="."]
+position = Vector2(454, 153)
+sprite_frames = SubResource("SpriteFrames_m607n")
+autoplay = "default"
+frame_progress = 0.956977
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 z_index = 10

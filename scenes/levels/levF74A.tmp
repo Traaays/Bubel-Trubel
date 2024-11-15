@@ -1,0 +1,71 @@
+[gd_scene load_steps=6 format=3 uid="uid://bwxekqq4kyed1"]
+
+[ext_resource type="PackedScene" uid="uid://b4xf4bgafr24q" path="res://scenes/template_level.tscn" id="1_20vnw"]
+[ext_resource type="Script" path="res://scripts/levels/level7.gd" id="1_doios"]
+[ext_resource type="Texture2D" uid="uid://bkp8ajoqra6a4" path="res://assets/balls/dim_gray.tres" id="1_kqqkb"]
+[ext_resource type="PackedScene" uid="uid://dy4vpfkmtq0ua" path="res://scenes/ball.tscn" id="2_frlip"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k5itr"]
+size = Vector2(26, 243)
+
+[node name="level7" type="Node2D"]
+script = ExtResource("1_doios")
+
+[node name="thefogiscoming" type="TextureRect" parent="."]
+modulate = Color(0.281187, 0.281187, 0.281187, 1)
+offset_right = 40.0
+offset_bottom = 40.0
+pivot_offset = Vector2(128, 112)
+texture = ExtResource("1_kqqkb")
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+modulate = Color(0.724643, 0.724643, 0.724643, 1)
+offset_right = 274.0
+offset_bottom = 265.0
+
+[node name="testLevel" parent="." instance=ExtResource("1_20vnw")]
+
+[node name="Ball" parent="testLevel" instance=ExtResource("2_frlip")]
+position = Vector2(216, 136)
+rings = 8
+
+[node name="Ball2" parent="testLevel" instance=ExtResource("2_frlip")]
+position = Vector2(40, 136)
+size = 16
+rings = 8
+
+[node name="StaticBody2D" type="Area2D" parent="testLevel"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="testLevel/StaticBody2D"]
+position = Vector2(272, 102)
+shape = SubResource("RectangleShape2D_k5itr")
+
+[node name="ColorRect" type="ColorRect" parent="testLevel/StaticBody2D/CollisionShape2D"]
+offset_left = -13.0
+offset_top = -121.0
+offset_right = 13.0
+offset_bottom = 140.0
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="testLevel/StaticBody2D"]
+position = Vector2(-16, 102)
+shape = SubResource("RectangleShape2D_k5itr")
+
+[node name="ColorRect2" type="ColorRect" parent="testLevel/StaticBody2D/CollisionShape2D2"]
+offset_left = -13.0
+offset_top = -121.0
+offset_right = 13.0
+offset_bottom = 140.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -4.0
+offset_top = 208.0
+offset_right = 284.0
+offset_bottom = 248.0
+color = Color(0, 0, 0, 1)
+
+[node name="Flip" type="Timer" parent="."]
+wait_time = 0.835
+autostart = true
+
+[connection signal="body_entered" from="testLevel/StaticBody2D" to="testLevel" method="_on_walls_body_entered"]
+[connection signal="timeout" from="Flip" to="." method="_on_flip_timeout"]

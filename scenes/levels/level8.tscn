@@ -1,0 +1,132 @@
+[gd_scene load_steps=8 format=3 uid="uid://bbxh87amdh48o"]
+
+[ext_resource type="Script" path="res://scripts/levels/level8.gd" id="1_1frt3"]
+[ext_resource type="Texture2D" uid="uid://bkp8ajoqra6a4" path="res://assets/balls/dim_gray.tres" id="2_qke0n"]
+[ext_resource type="PackedScene" uid="uid://b4xf4bgafr24q" path="res://scenes/template_level.tscn" id="3_qxn3p"]
+[ext_resource type="PackedScene" uid="uid://dy4vpfkmtq0ua" path="res://scenes/ball.tscn" id="4_kh8q1"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ofoyf"]
+frequency = 0.0977
+offset = Vector3(392.86, 140.35, 0)
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ibywl"]
+noise = SubResource("FastNoiseLite_ofoyf")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k5itr"]
+size = Vector2(26, 243)
+
+[node name="level8" type="Node2D"]
+script = ExtResource("1_1frt3")
+
+[node name="thefogiscoming" type="TextureRect" parent="."]
+modulate = Color(0.281187, 0.281187, 0.281187, 1)
+offset_right = 40.0
+offset_bottom = 40.0
+pivot_offset = Vector2(128, 112)
+texture = ExtResource("2_qke0n")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.145098)
+offset_left = -170.0
+offset_top = -73.0
+offset_right = 342.0
+offset_bottom = 439.0
+pivot_offset = Vector2(300, 200)
+texture = SubResource("NoiseTexture2D_ibywl")
+
+[node name="dodgelabel" type="Label" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 32.0
+offset_top = 24.0
+offset_right = 230.0
+offset_bottom = 73.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 16
+text = "dodge!
+no more hook"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="testLevel" parent="." instance=ExtResource("3_qxn3p")]
+
+[node name="Ball" parent="testLevel" instance=ExtResource("4_kh8q1")]
+position = Vector2(216, 120)
+size = 16
+colour = "white"
+rings = 8
+direction = false
+
+[node name="Ball2" parent="testLevel" instance=ExtResource("4_kh8q1")]
+position = Vector2(40, 120)
+size = 16
+colour = "white"
+rings = 8
+
+[node name="Ball3" parent="testLevel" instance=ExtResource("4_kh8q1")]
+position = Vector2(104, 120)
+size = 16
+colour = "white"
+rings = 8
+direction = false
+
+[node name="Ball4" parent="testLevel" instance=ExtResource("4_kh8q1")]
+position = Vector2(152, 120)
+size = 16
+colour = "white"
+rings = 8
+
+[node name="StaticBody2D" type="Area2D" parent="testLevel"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="testLevel/StaticBody2D"]
+position = Vector2(272, 102)
+shape = SubResource("RectangleShape2D_k5itr")
+
+[node name="ColorRect" type="ColorRect" parent="testLevel/StaticBody2D/CollisionShape2D"]
+offset_left = -13.0
+offset_top = -121.0
+offset_right = 13.0
+offset_bottom = 140.0
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="testLevel/StaticBody2D"]
+position = Vector2(-16, 102)
+shape = SubResource("RectangleShape2D_k5itr")
+
+[node name="ColorRect2" type="ColorRect" parent="testLevel/StaticBody2D/CollisionShape2D2"]
+offset_left = -13.0
+offset_top = -121.0
+offset_right = 13.0
+offset_bottom = 140.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -4.0
+offset_top = 208.0
+offset_right = 284.0
+offset_bottom = 248.0
+color = Color(0, 0, 0, 1)
+
+[node name="Black" type="ColorRect" parent="."]
+visible = false
+z_index = 4096
+offset_left = -21.0
+offset_top = -20.0
+offset_right = 284.0
+offset_bottom = 254.0
+color = Color(0, 0, 0, 1)
+
+[node name="Flip" type="Timer" parent="."]
+wait_time = 0.418
+autostart = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.25
+autostart = true
+
+[connection signal="body_entered" from="testLevel/StaticBody2D" to="testLevel" method="_on_walls_body_entered"]
+[connection signal="timeout" from="Flip" to="." method="_on_flip_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
