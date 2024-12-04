@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://d1tvirhgpnyxd"]
+[gd_scene load_steps=22 format=3 uid="uid://d1tvirhgpnyxd"]
 
 [ext_resource type="Shader" path="res://shaders/main_menu.gdshader" id="1_e2h3x"]
 [ext_resource type="Script" path="res://scripts/startmenu.gd" id="1_i8ogi"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ct5qhyx8jbec2" path="res://assets/menu/buttonssheet.png" id="4_g0r1v"]
 [ext_resource type="Texture2D" uid="uid://b6mdvd1x5nbej" path="res://assets/menu/selectstart.png" id="5_jxyxw"]
 [ext_resource type="Texture2D" uid="uid://b0wsnsspxbmnw" path="res://assets/menu/selectionsheet.png" id="5_u0ob6"]
+[ext_resource type="SpriteFrames" uid="uid://thsm41verfef" path="res://assets/menu/numbas.tres" id="5_u0xsh"]
 [ext_resource type="Texture2D" uid="uid://cgwb6hmsk0kug" path="res://assets/menu/logo.png" id="9_2nm3k"]
 [ext_resource type="Texture2D" uid="uid://bwy72rrbpfj0t" path="res://assets/menu/mask.png" id="11_2ee1v"]
 [ext_resource type="SpriteFrames" uid="uid://ctayxkvsuwtmr" path="res://assets/devil.tres" id="12_y77nq"]
@@ -91,32 +92,20 @@ texture = ExtResource("1_rydor")
 position = Vector2(121, 167)
 sprite_frames = SubResource("SpriteFrames_070se")
 
-[node name="skinLabel" type="Label" parent="."]
+[node name="skinNumba" type="AnimatedSprite2D" parent="."]
 visible = false
-offset_left = 112.0
-offset_top = 116.0
-offset_right = 152.0
-offset_bottom = 161.0
-theme_override_font_sizes/font_size = 32
-text = "1"
+position = Vector2(122, 139)
+sprite_frames = ExtResource("5_u0xsh")
 
-[node name="scaleLabel" type="Label" parent="."]
+[node name="scaleNumba" type="AnimatedSprite2D" parent="."]
 visible = false
-offset_left = 128.0
-offset_top = 147.0
-offset_right = 168.0
-offset_bottom = 192.0
-theme_override_font_sizes/font_size = 32
-text = "3"
+position = Vector2(136, 170)
+sprite_frames = ExtResource("5_u0xsh")
 
-[node name="fullscreenLabel" type="Label" parent="."]
+[node name="fullscreenNumba" type="AnimatedSprite2D" parent="."]
 visible = false
-offset_left = 203.0
-offset_top = 116.0
-offset_right = 254.0
-offset_bottom = 161.0
-theme_override_font_sizes/font_size = 32
-text = "yes"
+position = Vector2(210, 141)
+sprite_frames = ExtResource("5_u0xsh")
 
 [node name="highscoreLabel" type="Label" parent="."]
 offset_top = 210.0
@@ -171,7 +160,7 @@ transform = Transform3D(1, 0, 0, 0, -6.55671e-08, 1, 0, -1.5, -4.37114e-08, 0, -
 modulate = Color(0, 0, 0, 1)
 texture_filter = 0
 sprite_frames = ExtResource("12_y77nq")
-animation = &"6run"
+animation = &"8run"
 autoplay = "1stand"
 
 [node name="Sprite3D" type="Sprite3D" parent="Mask/SubViewportContainer/SubViewport/Camera3D/AnimatedSprite3D"]

@@ -1,0 +1,103 @@
+[gd_scene load_steps=7 format=3 uid="uid://bjiu6fttfe4sq"]
+
+[ext_resource type="Texture2D" uid="uid://bwy72rrbpfj0t" path="res://assets/menu/mask.png" id="1_td7sb"]
+[ext_resource type="Script" path="res://scripts/levels/end.gd" id="1_wv13g"]
+[ext_resource type="SpriteFrames" uid="uid://ctayxkvsuwtmr" path="res://assets/devil.tres" id="2_028xl"]
+[ext_resource type="Texture2D" uid="uid://c0ea7o40ujwtf" path="res://assets/menu/background.png" id="3_5qnal"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7kxqr"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_5lj82"]
+size = Vector3(100, 0.5, 100)
+
+[node name="end" type="Node2D"]
+script = ExtResource("1_wv13g")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 256.0
+offset_bottom = 224.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 8.0
+offset_top = 122.0
+offset_right = 248.0
+offset_bottom = 197.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Congrats on beating the Game!
+
+YOU UNLOCKED A NEW SKIN"
+horizontal_alignment = 1
+
+[node name="Mask" type="Sprite2D" parent="."]
+clip_children = 1
+position = Vector2(128, 64)
+texture = ExtResource("1_td7sb")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Mask"]
+material = SubResource("CanvasItemMaterial_7kxqr")
+offset_left = -40.0
+offset_top = -40.0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SubViewport" type="SubViewport" parent="Mask/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(80, 80)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="Mask/SubViewportContainer/SubViewport"]
+fov = 20.0
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Mask/SubViewportContainer/SubViewport/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.02, -1)
+texture_filter = 0
+sprite_frames = ExtResource("2_028xl")
+animation = &"1stand"
+autoplay = "1stand"
+
+[node name="AnimatedSprite3D2" type="AnimatedSprite3D" parent="Mask/SubViewportContainer/SubViewport/Camera3D/AnimatedSprite3D"]
+transform = Transform3D(1, 0, 0, 0, -6.55671e-08, 1, 0, -1.5, -4.37114e-08, 0, -0.16, -0.24)
+modulate = Color(0, 0, 0, 1)
+texture_filter = 0
+sprite_frames = ExtResource("2_028xl")
+animation = &"8run"
+autoplay = "1stand"
+
+[node name="Sprite3D" type="Sprite3D" parent="Mask/SubViewportContainer/SubViewport/Camera3D/AnimatedSprite3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.02, -5.7)
+modulate = Color(0.547458, 0.678752, 1.92523e-07, 1)
+pixel_size = 0.25
+texture = ExtResource("3_5qnal")
+
+[node name="Sprite3D2" type="Sprite3D" parent="Mask/SubViewportContainer/SubViewport/Camera3D/AnimatedSprite3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.02, 5.7)
+modulate = Color(0.547458, 0.678752, 1.92523e-07, 1)
+pixel_size = 0.25
+texture = ExtResource("3_5qnal")
+
+[node name="Sprite3D3" type="Sprite3D" parent="Mask/SubViewportContainer/SubViewport/Camera3D/AnimatedSprite3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.7, -0.02, 5.7)
+modulate = Color(0.547458, 0.678752, 1.92523e-07, 1)
+pixel_size = 0.25
+texture = ExtResource("3_5qnal")
+
+[node name="Sprite3D4" type="Sprite3D" parent="Mask/SubViewportContainer/SubViewport/Camera3D/AnimatedSprite3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.7, -0.02, 5.7)
+modulate = Color(0.547458, 0.678752, 1.92523e-07, 1)
+pixel_size = 0.25
+texture = ExtResource("3_5qnal")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mask/SubViewportContainer/SubViewport/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+mesh = SubResource("BoxMesh_5lj82")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Mask/SubViewportContainer/SubViewport/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0.3, 0)
+spot_range = 50.0

@@ -1,0 +1,457 @@
+[gd_scene load_steps=33 format=3 uid="uid://dcya68f5li1f2"]
+
+[ext_resource type="Script" path="res://scripts/levels/level9.gd" id="1_an7p5"]
+[ext_resource type="Texture2D" uid="uid://bkp8ajoqra6a4" path="res://assets/balls/dim_gray.tres" id="2_gb1xe"]
+[ext_resource type="Texture2D" uid="uid://ekr61hbyx8cp" path="res://assets/backgrounds/vbackground.png" id="3_biur8"]
+[ext_resource type="PackedScene" uid="uid://bnig7a8u888r7" path="res://scenes/devil.tscn" id="3_rcilm"]
+[ext_resource type="PackedScene" uid="uid://dy4vpfkmtq0ua" path="res://scenes/ball.tscn" id="4_mjxk4"]
+[ext_resource type="Texture2D" uid="uid://c6t2cy7c6n4xm" path="res://assets/backgrounds/spiral.jpg" id="5_l2qc2"]
+[ext_resource type="Texture2D" uid="uid://ceqa0pqs6yjqa" path="res://assets/backgrounds/bacckground4.png" id="6_1eity"]
+[ext_resource type="Texture2D" uid="uid://8d20bbkte76p" path="res://assets/sprites/devils/spritesheetpifpafbasic2.png" id="7_ww7bh"]
+[ext_resource type="Texture2D" uid="uid://ch13hq2dxhlof" path="res://assets/sprites/devils/spritesheetpifpafevil.png" id="8_72ru4"]
+[ext_resource type="Texture2D" uid="uid://vikgcl728th0" path="res://assets/sprites/devils/spritesheetpifpafpump.png" id="9_gcpq0"]
+[ext_resource type="Texture2D" uid="uid://brw68hcg3fbha" path="res://assets/sprites/devils/spritesheet33.png" id="10_gwhl7"]
+[ext_resource type="Script" path="res://scripts/broweser.gd" id="12_libts"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3hpip"]
+size = Vector2(20, 272)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h5kvp"]
+radius = 9.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ve41k"]
+
+[sub_resource type="TorusMesh" id="TorusMesh_y3kmy"]
+
+[sub_resource type="Gradient" id="Gradient_700gc"]
+colors = PackedColorArray(0.784314, 0.298039, 0.0470588, 1, 0.454902, 0.454902, 0.454902, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_kax2o"]
+gradient = SubResource("Gradient_700gc")
+width = 16
+
+[sub_resource type="QuadMesh" id="QuadMesh_i4t2r"]
+
+[sub_resource type="Gradient" id="Gradient_1m45t"]
+colors = PackedColorArray(0.65098, 0.360784, 0.207843, 1, 0.47451, 0.443137, 0.427451, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_u0swf"]
+gradient = SubResource("Gradient_1m45t")
+width = 4
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y4pdv"]
+radius = 1.5
+
+[sub_resource type="SphereMesh" id="SphereMesh_t14uq"]
+radius = 1.0
+
+[sub_resource type="Gradient" id="Gradient_ws1e1"]
+colors = PackedColorArray(0.0470588, 0.576471, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_hhqry"]
+gradient = SubResource("Gradient_ws1e1")
+width = 1
+
+[sub_resource type="Gradient" id="Gradient_f61dd"]
+colors = PackedColorArray(0.901961, 0.611765, 0.129412, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_eskks"]
+gradient = SubResource("Gradient_f61dd")
+width = 1
+
+[sub_resource type="Gradient" id="Gradient_3upam"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_yj7c5"]
+gradient = SubResource("Gradient_3upam")
+width = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_52ogb"]
+size = Vector2(4.55556, 2.61051)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4a3us"]
+size = Vector2(20, 182)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_quwm0"]
+size = Vector2(465, 10)
+
+[node name="level9" type="Node2D"]
+script = ExtResource("1_an7p5")
+
+[node name="ColorRect4" type="ColorRect" parent="."]
+offset_left = 1990.0
+offset_top = -6.0
+offset_right = 4216.0
+offset_bottom = 239.0
+color = Color(0, 0, 0, 1)
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(1400, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 126)
+shape = SubResource("RectangleShape2D_3hpip")
+
+[node name="backgroun" type="Node2D" parent="."]
+
+[node name="Spritesheetpifpafbasic2" type="Sprite2D" parent="backgroun"]
+position = Vector2(794, 4)
+texture = ExtResource("7_ww7bh")
+
+[node name="Spritesheetpifpafbasic3" type="Sprite2D" parent="backgroun"]
+modulate = Color(1, 1, 1, 0.647059)
+position = Vector2(794, 28)
+texture = ExtResource("7_ww7bh")
+
+[node name="Spritesheetpifpafbasic4" type="Sprite2D" parent="backgroun"]
+modulate = Color(1, 1, 1, 0.301961)
+position = Vector2(794, 52)
+texture = ExtResource("7_ww7bh")
+
+[node name="Spritesheetpifpafbasic5" type="Sprite2D" parent="backgroun"]
+modulate = Color(1, 1, 1, 0.0392157)
+position = Vector2(794, 76)
+texture = ExtResource("7_ww7bh")
+
+[node name="Spritesheetpifpafevil" type="Sprite2D" parent="backgroun"]
+position = Vector2(955, 119)
+rotation = -2.6337
+texture = ExtResource("8_72ru4")
+
+[node name="Spritesheetpifpafpump" type="Sprite2D" parent="backgroun"]
+position = Vector2(1139, -133)
+rotation = -1.31598
+texture = ExtResource("9_gcpq0")
+
+[node name="Spritesheet33" type="Sprite2D" parent="backgroun"]
+position = Vector2(1131, 83.9999)
+rotation = -2.14675
+texture = ExtResource("10_gwhl7")
+
+[node name="Bacckground4" type="Sprite2D" parent="backgroun"]
+position = Vector2(721, 244)
+scale = Vector2(13.1875, 3.54167)
+texture = ExtResource("6_1eity")
+
+[node name="Spiral" type="Sprite2D" parent="backgroun"]
+modulate = Color(0.325441, 0.325441, 0.325441, 1)
+position = Vector2(128, 112)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("5_l2qc2")
+
+[node name="Vbackground" type="Sprite2D" parent="backgroun"]
+position = Vector2(900, -8)
+texture = ExtResource("3_biur8")
+
+[node name="DimGray" type="Sprite2D" parent="backgroun"]
+position = Vector2(1186.75, 83)
+scale = Vector2(0.162109, 0.654297)
+texture = ExtResource("2_gb1xe")
+
+[node name="DimGray3" type="Sprite2D" parent="backgroun"]
+position = Vector2(1324.5, 82.75)
+scale = Vector2(0.162109, 0.654297)
+texture = ExtResource("2_gb1xe")
+
+[node name="DimGray4" type="Sprite2D" parent="backgroun"]
+position = Vector2(1434.5, 79.75)
+scale = Vector2(0.162109, 0.654297)
+texture = ExtResource("2_gb1xe")
+
+[node name="DimGray2" type="Sprite2D" parent="backgroun"]
+position = Vector2(1255.5, 93.75)
+rotation = 1.5708
+scale = Vector2(0.162109, 0.654297)
+texture = ExtResource("2_gb1xe")
+
+[node name="Devil" parent="." instance=ExtResource("3_rcilm")]
+position = Vector2(128, 192)
+
+[node name="Camera2D" type="Camera2D" parent="Devil"]
+offset = Vector2(0, -80)
+
+[node name="broweser checker" type="Area2D" parent="Devil"]
+collision_layer = 129
+collision_mask = 129
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Devil/broweser checker"]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_h5kvp")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 208)
+shape = SubResource("WorldBoundaryShape2D_ve41k")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -3312.0
+offset_top = 208.0
+offset_right = 1991.0
+offset_bottom = 248.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+offset_left = 1990.0
+offset_top = 168.0
+offset_right = 2428.0
+offset_bottom = 186.0
+color = Color(0.454902, 0.454902, 0.454902, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="."]
+offset_left = 2428.0
+offset_top = 168.0
+offset_right = 4164.0
+offset_bottom = 239.0
+color = Color(0.65834, 0.65834, 0.65834, 1)
+
+[node name="ColorRect6" type="ColorRect" parent="."]
+offset_left = 1990.0
+offset_top = 168.0
+offset_right = 2103.0
+offset_bottom = 208.0
+color = Color(0.65834, 0.65834, 0.65834, 1)
+
+[node name="ColorRect7" type="ColorRect" parent="."]
+offset_left = 1990.0
+offset_right = 2103.0
+offset_bottom = 40.0
+color = Color(0.65834, 0.65834, 0.65834, 1)
+
+[node name="ColorRect9" type="ColorRect" parent="."]
+offset_left = 1990.0
+offset_right = 2486.0
+offset_bottom = 16.0
+color = Color(0.65834, 0.65834, 0.65834, 1)
+
+[node name="ColorRect8" type="ColorRect" parent="."]
+offset_left = 2462.0
+offset_right = 4172.0
+offset_bottom = 40.0
+color = Color(0.65834, 0.65834, 0.65834, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = 1990.0
+offset_top = 208.0
+offset_right = 2541.0
+offset_bottom = 248.0
+color = Color(0.847059, 0.156863, 0, 1)
+
+[node name="Ball" parent="." instance=ExtResource("4_mjxk4")]
+position = Vector2(25, 169)
+size = 16
+colour = "white"
+rings = 16
+
+[node name="Ball7" parent="." instance=ExtResource("4_mjxk4")]
+position = Vector2(-18, 67)
+size = 16
+colour = "white"
+rings = 16
+
+[node name="Ball9" parent="." instance=ExtResource("4_mjxk4")]
+position = Vector2(603, 141)
+colour = "white"
+rings = 16
+direction = false
+
+[node name="Ball12" parent="." instance=ExtResource("4_mjxk4")]
+position = Vector2(1069, 129)
+size = 8
+colour = "blue"
+rings = 16
+direction = false
+
+[node name="Ball13" parent="." instance=ExtResource("4_mjxk4")]
+position = Vector2(1093, 129)
+size = 8
+colour = "blue"
+rings = 16
+direction = false
+
+[node name="Ball14" parent="." instance=ExtResource("4_mjxk4")]
+position = Vector2(1117, 129)
+size = 8
+colour = "blue"
+rings = 16
+direction = false
+
+[node name="Ball10" parent="." instance=ExtResource("4_mjxk4")]
+position = Vector2(843, 143)
+colour = "dim_gray"
+rings = 16
+direction = false
+
+[node name="Ball15" parent="." instance=ExtResource("4_mjxk4")]
+position = Vector2(1409, 167)
+colour = "white"
+rings = 16
+direction = false
+
+[node name="Ball16" parent="." instance=ExtResource("4_mjxk4")]
+position = Vector2(1357, 101)
+size = 16
+colour = "black"
+rings = 16
+direction = false
+
+[node name="Ball17" parent="." instance=ExtResource("4_mjxk4")]
+position = Vector2(1493, 165)
+size = 16
+colour = "white"
+rings = 16
+direction = false
+
+[node name="Ball18" parent="." instance=ExtResource("4_mjxk4")]
+position = Vector2(1540, 77)
+size = 16
+colour = "dim_gray"
+rings = 16
+direction = false
+
+[node name="Ball22" parent="." instance=ExtResource("4_mjxk4")]
+position = Vector2(1618, 64.0001)
+rotation = -2.41347
+colour = "dim_gray"
+rings = 16
+direction = false
+
+[node name="Ball23" parent="." instance=ExtResource("4_mjxk4")]
+position = Vector2(1717, 108)
+rotation = -2.41347
+colour = "black"
+rings = 16
+direction = false
+
+[node name="Ball11" parent="." instance=ExtResource("4_mjxk4")]
+position = Vector2(799, 155)
+size = 16
+colour = "dim_gray"
+rings = 16
+direction = false
+
+[node name="Ball4" parent="." instance=ExtResource("4_mjxk4")]
+position = Vector2(-22, 169)
+colour = "white"
+rings = 16
+
+[node name="Ball2" parent="." instance=ExtResource("4_mjxk4")]
+position = Vector2(-17, 123)
+size = 16
+colour = "dim_gray"
+rings = 16
+
+[node name="Ball3" parent="." instance=ExtResource("4_mjxk4")]
+position = Vector2(22, 111)
+size = 8
+colour = "dim_gray"
+rings = 16
+
+[node name="Ball8" parent="." instance=ExtResource("4_mjxk4")]
+position = Vector2(-61, 136)
+size = 8
+colour = "dim_gray"
+rings = 16
+
+[node name="Ball5" parent="." instance=ExtResource("4_mjxk4")]
+position = Vector2(-67, 87)
+size = 16
+colour = "white"
+rings = 16
+
+[node name="Ball6" parent="." instance=ExtResource("4_mjxk4")]
+position = Vector2(-91, 171)
+colour = "dim_gray"
+rings = 16
+
+[node name="axe" type="MeshInstance2D" parent="."]
+position = Vector2(2438, 154)
+scale = Vector2(8.99997, 21.8348)
+mesh = SubResource("TorusMesh_y3kmy")
+texture = SubResource("GradientTexture1D_kax2o")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="axe"]
+position = Vector2(-3.09944e-06, 0.45893)
+scale = Vector2(0.333327, 0.364496)
+mesh = SubResource("QuadMesh_i4t2r")
+texture = SubResource("GradientTexture1D_u0swf")
+
+[node name="Area2D" type="Area2D" parent="axe"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="axe/Area2D"]
+position = Vector2(0, 0.366387)
+shape = SubResource("CircleShape2D_y4pdv")
+
+[node name="broweser" type="CharacterBody2D" parent="."]
+position = Vector2(2380, 155)
+scale = Vector2(8.99997, 21.8348)
+collision_layer = 128
+collision_mask = 128
+script = ExtResource("12_libts")
+
+[node name="MeshInstance2D3" type="MeshInstance2D" parent="broweser"]
+position = Vector2(1.16586, -0.732774)
+rotation = 1.5708
+scale = Vector2(1.2784, 4.59447)
+mesh = SubResource("SphereMesh_t14uq")
+texture = SubResource("GradientTexture1D_hhqry")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="broweser"]
+position = Vector2(-0.888863, -1.96933)
+scale = Vector2(1.66857, 1)
+mesh = SubResource("SphereMesh_t14uq")
+texture = SubResource("GradientTexture1D_eskks")
+
+[node name="MeshInstance2D6" type="MeshInstance2D" parent="broweser"]
+position = Vector2(0.222252, -2.19832)
+scale = Vector2(0.72305, 1)
+mesh = SubResource("SphereMesh_t14uq")
+texture = SubResource("GradientTexture1D_yj7c5")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="broweser"]
+position = Vector2(-0.666663, -0.641178)
+scale = Vector2(1.168, 0.728992)
+mesh = SubResource("SphereMesh_t14uq")
+texture = SubResource("GradientTexture1D_eskks")
+
+[node name="MeshInstance2D4" type="MeshInstance2D" parent="broweser"]
+position = Vector2(0.888897, 0.320588)
+scale = Vector2(1.168, 0.728992)
+mesh = SubResource("SphereMesh_t14uq")
+texture = SubResource("GradientTexture1D_eskks")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="broweser"]
+position = Vector2(1.16663, -0.709875)
+shape = SubResource("RectangleShape2D_52ogb")
+
+[node name="leftright" type="Timer" parent="broweser"]
+one_shot = true
+
+[node name="hammertimer" type="Timer" parent="broweser"]
+wait_time = 0.1
+one_shot = true
+
+[node name="Node2D" type="StaticBody2D" parent="."]
+position = Vector2(2100, 168)
+collision_layer = 131
+collision_mask = 131
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D"]
+position = Vector2(-35, -75)
+shape = SubResource("RectangleShape2D_4a3us")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Node2D"]
+position = Vector2(207.5, 5)
+shape = SubResource("RectangleShape2D_quwm0")
+
+[node name="doneTImer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Devil/broweser checker" to="." method="_on_broweser_checker_body_entered"]
+[connection signal="body_entered" from="axe/Area2D" to="." method="_on_axe_2d_body_entered"]
+[connection signal="timeout" from="broweser/leftright" to="broweser" method="_on_leftright_timeout"]
+[connection signal="timeout" from="broweser/hammertimer" to="broweser" method="_on_hammertimer_timeout"]
+[connection signal="timeout" from="doneTImer" to="." method="_on_done_t_imer_timeout"]

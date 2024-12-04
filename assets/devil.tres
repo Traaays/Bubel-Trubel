@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=29 format=3 uid="uid://ctayxkvsuwtmr"]
+[gd_resource type="SpriteFrames" load_steps=33 format=3 uid="uid://ctayxkvsuwtmr"]
 
 [ext_resource type="Texture2D" uid="uid://ch13hq2dxhlof" path="res://assets/sprites/devils/spritesheetpifpafevil.png" id="1_u5l3m"]
 [ext_resource type="Texture2D" uid="uid://8d20bbkte76p" path="res://assets/sprites/devils/spritesheetpifpafbasic2.png" id="2_8b4ki"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://o2uvpwr6qfgq" path="res://assets/sprites/devils/spritesheetvirtualboy.png" id="5_rfb4e"]
 [ext_resource type="Texture2D" uid="uid://vikgcl728th0" path="res://assets/sprites/devils/spritesheetpifpafpump.png" id="6_ecldg"]
 [ext_resource type="Texture2D" uid="uid://brw68hcg3fbha" path="res://assets/sprites/devils/spritesheet33.png" id="6_h4id2"]
+[ext_resource type="Texture2D" uid="uid://d1ycl7fbmgvia" path="res://assets/sprites/devils/8skin.png" id="8_sueag"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2jyy1"]
 atlas = ExtResource("2_87poe")
@@ -90,6 +91,18 @@ region = Rect2(58, 0, 29, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pqg13"]
 atlas = ExtResource("6_h4id2")
+region = Rect2(29, 0, 29, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ld51d"]
+atlas = ExtResource("8_sueag")
+region = Rect2(87, 0, 29, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5syqh"]
+atlas = ExtResource("8_sueag")
+region = Rect2(58, 0, 29, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yef7b"]
+atlas = ExtResource("8_sueag")
 region = Rect2(29, 0, 29, 32)
 
 [resource]
@@ -225,5 +238,24 @@ animations = [{
 }],
 "loop": true,
 "name": &"7stand",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ld51d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5syqh")
+}],
+"loop": true,
+"name": &"8run",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yef7b")
+}],
+"loop": true,
+"name": &"8stand",
 "speed": 6.0
 }]

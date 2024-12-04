@@ -7,11 +7,11 @@ extends Node2D
 @onready var pif = $Mask/SubViewportContainer/SubViewport/Camera3D/AnimatedSprite3D
 @onready var pifshadow = $Mask/SubViewportContainer/SubViewport/Camera3D/AnimatedSprite3D/AnimatedSprite3D2
 
-@onready var skin = $skinLabel
+@onready var skin = $skinNumba
 @onready var highscore = $highscoreLabel
 
-@onready var fullscreen = $fullscreenLabel
-@onready var scalel = $scaleLabel
+@onready var fullscreen = $fullscreenNumba
+@onready var scalel = $scaleNumba
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -20,10 +20,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if cnDevil.skin != 7:
-		skin.text = str(cnDevil.skin)
-	else:
-		skin.text = "33% xd"
+	skin.frame = cnDevil.skin
 	highscore.text = ("highscore: " + str(MySingleton.highscore))
 	pif.rotation.y -= 0.02 * delta * 60
 	pif.animation = str(cnDevil.skin) + "run"
@@ -64,11 +61,11 @@ func _process(delta):
 						scalel.visible = true
 					2:
 						if DisplayServer.window_get_mode() != 4 and DisplayServer.window_get_mode() != 3:
-							if scalel.text == str(4):
+							if scalel.frame == 4:
 								get_window().size = Vector2i(256,224)
-							elif scalel.text == str(3):
+							elif scalel.frame == 3:
 								get_window().size = Vector2i(1024,896)
-							elif scalel.text == str(2):
+							elif scalel.frame == 2:
 								get_window().size = Vector2i(768,672)
 							else:
 								get_window().size = Vector2i(512,448)
@@ -92,14 +89,14 @@ func _process(delta):
 
 func check_display():
 	if get_window().size.x >= 1024 and get_window().size.y >= 896:
-		scalel.text = str(4)
+		scalel.frame = 4
 	elif get_window().size.x >= 768 and get_window().size.y >= 672:
-		scalel.text = str(3)
+		scalel.frame = 3
 	elif get_window().size.x >= 512 and get_window().size.y >= 448:
-		scalel.text = str(2)
+		scalel.frame = 2
 	else:
-		scalel.text = str(1)
+		scalel.frame = 1
 	if DisplayServer.window_get_mode() == 4 or DisplayServer.window_get_mode() == 3:
-		fullscreen.text = "yes"
+		fullscreen.frame = 1
 	else:
-		fullscreen.text = "no"
+		fullscreen.frame = 0

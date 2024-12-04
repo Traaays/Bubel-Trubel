@@ -7,7 +7,7 @@ var highscore = 0
 var lives = 3
 var maxLives = 3
 
-var currentLevel = 8
+var currentLevel = 1
 
 var maxSkin = 7
 

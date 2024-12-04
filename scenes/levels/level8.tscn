@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bbxh87amdh48o"]
+[gd_scene load_steps=13 format=3 uid="uid://bbxh87amdh48o"]
 
 [ext_resource type="Script" path="res://scripts/levels/level8.gd" id="1_1frt3"]
 [ext_resource type="Texture2D" uid="uid://bkp8ajoqra6a4" path="res://assets/balls/dim_gray.tres" id="2_qke0n"]
 [ext_resource type="PackedScene" uid="uid://b4xf4bgafr24q" path="res://scenes/template_level.tscn" id="3_qxn3p"]
 [ext_resource type="PackedScene" uid="uid://dy4vpfkmtq0ua" path="res://scenes/ball.tscn" id="4_kh8q1"]
+[ext_resource type="Texture2D" uid="uid://dwjockln6u737" path="res://assets/sprites/devils/spritesheetpifpafbasic.png" id="5_56bqe"]
+[ext_resource type="AudioStream" uid="uid://c4nv05dv2te6n" path="res://assets/sounds/jumpscare.wav" id="6_lqtd6"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_ofoyf"]
 frequency = 0.0977
@@ -14,6 +16,86 @@ noise = SubResource("FastNoiseLite_ofoyf")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k5itr"]
 size = Vector2(26, 243)
+
+[sub_resource type="Animation" id="Animation_cnrp3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:scale:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_eik6i"]
+resource_name = "jumpscare"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0.1, -0.25, 0, 0.25, 0, 40, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.866667)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0.1, -0.25, 0, 0.25, 0, 40, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.866667)
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.966667, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_daeuh"]
+_data = {
+"RESET": SubResource("Animation_cnrp3"),
+"jumpscare": SubResource("Animation_eik6i")
+}
 
 [node name="level8" type="Node2D"]
 script = ExtResource("1_1frt3")
@@ -126,6 +208,27 @@ autostart = true
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.25
 autostart = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+z_index = 3000
+position = Vector2(128, 112)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("5_56bqe")
+region_enabled = true
+region_rect = Rect2(29, 0, 29, 38)
+
+[node name="JumpScareNimation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_daeuh")
+}
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+position = Vector2(128, 112)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="AudioListener2D"]
+stream = ExtResource("6_lqtd6")
+pitch_scale = 2.0
 
 [connection signal="body_entered" from="testLevel/StaticBody2D" to="testLevel" method="_on_walls_body_entered"]
 [connection signal="timeout" from="Flip" to="." method="_on_flip_timeout"]
