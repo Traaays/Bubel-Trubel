@@ -13,5 +13,6 @@ func _process(delta):
 	pif.rotation.y -= 0.02 * delta * 60
 	pif.animation = "8run"
 	pifshadow.animation = "8run"
+	MySingleton.allscore = 0
 	if Input.is_action_just_pressed("Shoot") or Input.is_action_just_pressed("Select") or Input.is_action_just_pressed("Start"):
 		get_tree().change_scene_to_file("res://scenes/startmenu.tscn")

@@ -3,7 +3,7 @@
 [ext_resource type="Shader" path="res://shaders/main_menu.gdshader" id="1_e2h3x"]
 [ext_resource type="Script" path="res://scripts/startmenu.gd" id="1_i8ogi"]
 [ext_resource type="Texture2D" uid="uid://c0ea7o40ujwtf" path="res://assets/menu/background.png" id="1_rydor"]
-[ext_resource type="Texture2D" uid="uid://ct5qhyx8jbec2" path="res://assets/menu/buttonssheet.png" id="4_g0r1v"]
+[ext_resource type="Texture2D" uid="uid://nli4a6ory1ho" path="res://assets/menu/buttonssheetweb.png" id="5_e8ggd"]
 [ext_resource type="Texture2D" uid="uid://b6mdvd1x5nbej" path="res://assets/menu/selectstart.png" id="5_jxyxw"]
 [ext_resource type="Texture2D" uid="uid://b0wsnsspxbmnw" path="res://assets/menu/selectionsheet.png" id="5_u0ob6"]
 [ext_resource type="SpriteFrames" uid="uid://thsm41verfef" path="res://assets/menu/numbas.tres" id="5_u0xsh"]
@@ -18,29 +18,29 @@ shader = ExtResource("1_e2h3x")
 shader_parameter/scroll_speed = 0.6
 shader_parameter/scroll_y_speed = -0.144
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qim0k"]
-atlas = ExtResource("4_g0r1v")
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2uhu"]
+atlas = ExtResource("5_e8ggd")
 region = Rect2(0, 0, 152, 86)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ss48h"]
-atlas = ExtResource("4_g0r1v")
+[sub_resource type="AtlasTexture" id="AtlasTexture_2gklr"]
+atlas = ExtResource("5_e8ggd")
 region = Rect2(152, 0, 152, 86)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pm4rd"]
-atlas = ExtResource("4_g0r1v")
+[sub_resource type="AtlasTexture" id="AtlasTexture_6l0q1"]
+atlas = ExtResource("5_e8ggd")
 region = Rect2(304, 0, 152, 86)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_070se"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qim0k")
+"texture": SubResource("AtlasTexture_a2uhu")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ss48h")
+"texture": SubResource("AtlasTexture_2gklr")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pm4rd")
+"texture": SubResource("AtlasTexture_6l0q1")
 }],
 "loop": true,
 "name": &"default",
@@ -101,6 +101,7 @@ sprite_frames = ExtResource("5_u0xsh")
 
 [node name="scaleNumba" type="AnimatedSprite2D" parent="."]
 visible = false
+modulate = Color(0.617455, 0.617455, 0.617455, 1)
 position = Vector2(136, 170)
 sprite_frames = ExtResource("5_u0xsh")
 

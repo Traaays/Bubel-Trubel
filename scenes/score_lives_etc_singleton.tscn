@@ -1,7 +1,75 @@
-[gd_scene load_steps=2 format=3 uid="uid://c6ujf0dqx6ex"]
+[gd_scene load_steps=15 format=3 uid="uid://c6ujf0dqx6ex"]
 
 [ext_resource type="Script" path="res://scripts/score_lives_etc_singleton.gd" id="1_ppsyy"]
+[ext_resource type="Texture2D" uid="uid://btyyuneenckk3" path="res://assets/touchbuttons/left.png" id="2_8e4gs"]
+[ext_resource type="Texture2D" uid="uid://bv5r06sfnkljk" path="res://assets/touchbuttons/leftpressed.png" id="3_ckp17"]
+[ext_resource type="Texture2D" uid="uid://dmxpah4sqs0qy" path="res://assets/touchbuttons/right.png" id="4_onqaq"]
+[ext_resource type="Texture2D" uid="uid://tx5twigv0lw2" path="res://assets/touchbuttons/rightpressed.png" id="5_hn67n"]
+[ext_resource type="Texture2D" uid="uid://dwiq6i3jha7d5" path="res://assets/touchbuttons/up.png" id="6_yh8fx"]
+[ext_resource type="Texture2D" uid="uid://bah8uoud2x4ki" path="res://assets/touchbuttons/uppressed.png" id="7_lvbye"]
+[ext_resource type="Texture2D" uid="uid://bigg0lkcrbsgj" path="res://assets/touchbuttons/pause.png" id="8_wrvpr"]
+[ext_resource type="Texture2D" uid="uid://bctithri3p1u3" path="res://assets/touchbuttons/pausepressed.png" id="9_hugdc"]
+[ext_resource type="Texture2D" uid="uid://bco2psq1nghyd" path="res://assets/touchbuttons/restart.png" id="10_inop1"]
+[ext_resource type="Texture2D" uid="uid://l2sidgukwak8" path="res://assets/touchbuttons/restartpressed.png" id="11_02hl3"]
+[ext_resource type="Texture2D" uid="uid://yopeei6pvisi" path="res://assets/touchbuttons/quit.png" id="12_k7el5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ftdlt"]
+size = Vector2(55, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5mfl2"]
+size = Vector2(32, 32)
 
 [node name="ScoreLivesEtcSingleton" type="Node2D"]
 process_mode = 3
 script = ExtResource("1_ppsyy")
+
+[node name="Buttons" type="Node2D" parent="."]
+visible = false
+
+[node name="Left" type="TouchScreenButton" parent="Buttons"]
+z_index = 4096
+position = Vector2(8, 159)
+texture_normal = ExtResource("2_8e4gs")
+texture_pressed = ExtResource("3_ckp17")
+shape = SubResource("RectangleShape2D_ftdlt")
+action = "Left"
+
+[node name="Right" type="TouchScreenButton" parent="Buttons"]
+z_index = 4096
+position = Vector2(64, 159)
+texture_normal = ExtResource("4_onqaq")
+texture_pressed = ExtResource("5_hn67n")
+shape = SubResource("RectangleShape2D_ftdlt")
+action = "Right"
+
+[node name="Shoot" type="TouchScreenButton" parent="Buttons"]
+z_index = 4096
+position = Vector2(207, 159)
+texture_normal = ExtResource("6_yh8fx")
+texture_pressed = ExtResource("7_lvbye")
+shape = SubResource("RectangleShape2D_ftdlt")
+action = "Shoot"
+
+[node name="Pause" type="TouchScreenButton" parent="Buttons"]
+z_index = 4096
+position = Vector2(220, 4)
+texture_normal = ExtResource("8_wrvpr")
+texture_pressed = ExtResource("9_hugdc")
+shape = SubResource("RectangleShape2D_5mfl2")
+action = "Start"
+
+[node name="Select" type="TouchScreenButton" parent="Buttons"]
+z_index = 4096
+position = Vector2(220, 39)
+texture_normal = ExtResource("12_k7el5")
+shape = SubResource("RectangleShape2D_5mfl2")
+action = "Select"
+
+[node name="Reset" type="TouchScreenButton" parent="Buttons"]
+visible = false
+z_index = 4096
+position = Vector2(220, 74)
+texture_normal = ExtResource("10_inop1")
+texture_pressed = ExtResource("11_02hl3")
+shape = SubResource("RectangleShape2D_5mfl2")
+action = "Reset"

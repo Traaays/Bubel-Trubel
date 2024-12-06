@@ -66,19 +66,19 @@ func _process(delta):
 						fullscreen.visible = true
 						scalel.visible = true
 					2:
-						if DisplayServer.window_get_mode() != 4 and DisplayServer.window_get_mode() != 3:
-							if scalel.frame == 4:
-								get_window().size = Vector2i(256,224)
-							elif scalel.frame == 3:
-								get_window().size = Vector2i(1024,896)
-							elif scalel.frame == 2:
-								get_window().size = Vector2i(768,672)
-							else:
-								get_window().size = Vector2i(512,448)
+						pass#if DisplayServer.window_get_mode() != 4 and DisplayServer.window_get_mode() != 3:
+							#if scalel.frame == 4:
+								#get_window().size = Vector2i(256,224)
+							#elif scalel.frame == 3:
+								#get_window().size = Vector2i(1024,896)
+							#elif scalel.frame == 2:
+								#get_window().size = Vector2i(768,672)
+							#else:
+								#get_window().size = Vector2i(512,448)
 			2:
 				match buttons.frame:
 					0:
-						get_tree().quit()
+						pass#get_tree().quit()
 					1:
 						buttons.frame = 0
 						pick.frame = 0

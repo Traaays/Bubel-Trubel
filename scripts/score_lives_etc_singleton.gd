@@ -12,11 +12,29 @@ var gotToBroweser = false
 
 var maxSkin = 7
 
+var pausedByPlayer = false
+
 #make an invisible skin as the last one, also make one unlockable by winning, maybe like a crown
 
 func _process(delta):
 	if Input.is_action_just_pressed("F4"):
 		fullscreen()
+		
+	if $Buttons.visible == true:
+		var sceneName = get_tree().current_scene.name
+		if pausedByPlayer == true:
+			$Buttons/Select.visible = true
+			$Buttons/Reset.visible = true
+		else:
+			$Buttons/Select.visible = false
+			$Buttons/Reset.visible = false
+		if sceneName == "startmenu":
+			$Buttons/Select.visible = true
+			$Buttons/Reset.visible = false
+
+func _ready():
+	if OS.has_feature("web_android") or OS.has_feature("web_ios"):
+		$Buttons.visible = true
 
 func fullscreen():
 	if DisplayServer.window_get_mode() == 4 or DisplayServer.window_get_mode() == 3:
