@@ -13,10 +13,14 @@ extends Node2D
 @onready var fullscreen = $fullscreenNumba
 @onready var scalel = $scaleNumba
 
+@onready var select = $AudioListener2D/Select
+@onready var ee = $AudioListener2D/E
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	MySingleton.lives = MySingleton.maxLives
 	MySingleton.currentLevel = 1
+	MySingleton.gotToBroweser = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -32,7 +36,9 @@ func _process(delta):
 			pick.frame += 1
 		else:
 			pick.frame = 0
+		select.play()
 	if Input.is_action_just_pressed("Start"):
+		ee.play()
 		match pick.frame:
 			0:
 				match buttons.frame:

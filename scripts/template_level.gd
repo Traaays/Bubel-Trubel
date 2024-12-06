@@ -13,6 +13,11 @@ func _ready():
 	else:
 		$UI/livesLabel.text = ("lives = ∞")
 	$UI/scoreLabel.text = ("score = " + str(MySingleton.score + MySingleton.allscore))
+	
+	if MySingleton.currentLevel == 8:
+		AudioServer.set_bus_volume_db(1,-72)
+	else:
+		AudioServer.set_bus_volume_db(1,0)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

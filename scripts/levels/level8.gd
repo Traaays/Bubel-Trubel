@@ -15,7 +15,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	$TextureRect.rotation += delta * 0.5	
+	$TextureRect.rotation += delta * 0.5
 
 func _on_flip_timeout():
 	if number % 3 == 0:
@@ -26,7 +26,6 @@ func _on_flip_timeout():
 
 
 func _on_timer_timeout():
-	print(numbertwo)
 	numbertwo += 1
 	match numbertwo:
 		5:
@@ -166,3 +165,4 @@ func transition():
 	ball.direction = true
 	ball.position = Vector2(128,1)
 	$testLevel.add_child(ball)
+	get_node("AudioListener2D/static" + str(randi_range(1,4))).play()

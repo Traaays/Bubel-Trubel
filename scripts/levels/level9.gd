@@ -2,12 +2,12 @@ extends Node2D
 
 var amountAtBeginning = 0
 var queued = false
-static var broweserGotThere = false
+var walking = false
 
 func _ready():
 	if MySingleton.lives == 1:
 		MySingleton.lives += 1
-	if broweserGotThere == true:
+	if MySingleton.gotToBroweser == true:
 		queued = true
 		$backgroun.queue_free()
 		$Devil.position = Vector2(2120,152)
@@ -24,10 +24,12 @@ func _process(delta):
 		$backgroun/Spiral.rotation += delta
 		$backgroun/Vbackground.rotation += delta * 0.7
 		$backgroun/Bacckground4.rotation += delta * 0.9
+	if walking == true:
+		$Devil.velocity.x = 90
 
 func _on_area_2d_body_entered(body):
 	if body is cnDevil:
-		broweserGotThere = true
+		MySingleton.gotToBroweser = true
 		queued = true
 		$backgroun.queue_free()
 		$Devil.position = Vector2(2120,152)
@@ -49,6 +51,7 @@ func _on_axe_2d_body_entered(body):
 		if $broweser.position.x > 2380:
 			$broweser.position.x = 2380
 		$axe.queue_free()
+		walking = true
 			
 
 

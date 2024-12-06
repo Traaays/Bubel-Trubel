@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://d1tvirhgpnyxd"]
+[gd_scene load_steps=24 format=3 uid="uid://d1tvirhgpnyxd"]
 
 [ext_resource type="Shader" path="res://shaders/main_menu.gdshader" id="1_e2h3x"]
 [ext_resource type="Script" path="res://scripts/startmenu.gd" id="1_i8ogi"]
@@ -9,6 +9,8 @@
 [ext_resource type="SpriteFrames" uid="uid://thsm41verfef" path="res://assets/menu/numbas.tres" id="5_u0xsh"]
 [ext_resource type="Texture2D" uid="uid://cgwb6hmsk0kug" path="res://assets/menu/logo.png" id="9_2nm3k"]
 [ext_resource type="Texture2D" uid="uid://bwy72rrbpfj0t" path="res://assets/menu/mask.png" id="11_2ee1v"]
+[ext_resource type="AudioStream" uid="uid://csyclvg6c1xax" path="res://assets/sounds/menu/select.wav" id="11_6mp4s"]
+[ext_resource type="AudioStream" uid="uid://ci5ypr7fuv83m" path="res://assets/sounds/menu/e.wav" id="12_4w1ji"]
 [ext_resource type="SpriteFrames" uid="uid://ctayxkvsuwtmr" path="res://assets/devil.tres" id="12_y77nq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fixq2"]
@@ -194,3 +196,14 @@ mesh = SubResource("BoxMesh_3onw7")
 [node name="SpotLight3D" type="SpotLight3D" parent="Mask/SubViewportContainer/SubViewport/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0.3, 0)
 spot_range = 50.0
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+position = Vector2(128, 112)
+
+[node name="Select" type="AudioStreamPlayer2D" parent="AudioListener2D"]
+stream = ExtResource("11_6mp4s")
+volume_db = -5.0
+
+[node name="E" type="AudioStreamPlayer2D" parent="AudioListener2D"]
+stream = ExtResource("12_4w1ji")
+volume_db = -5.0

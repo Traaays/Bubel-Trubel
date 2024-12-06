@@ -8,6 +8,7 @@ var lives = 3
 var maxLives = 3
 
 var currentLevel = 1
+var gotToBroweser = false
 
 var maxSkin = 7
 
